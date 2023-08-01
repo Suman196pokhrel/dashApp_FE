@@ -1,0 +1,79 @@
+@import "../../styles//variables.scss";
+
+.login {
+  // background-color: blue;
+
+  .loginHeader {
+    margin-bottom: 40px;
+
+    h1 {
+      color: $primary-text;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    p {
+      color: $secondary-text;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+
+  .loginForm {
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .formFields {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        .MuiTextField-root {
+          height: 56px;
+          width: 480px;
+          margin-bottom: 24px;
+          font-size: 40px;
+        }
+      }
+
+      .formUtils {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        font-size: 14px;
+
+        .rememberMe {
+          font-weight: 400;
+        }
+
+        p {
+          font-weight: 600;
+          color: $secondary-green-text;
+        }
+      }
+
+      button {
+        cursor: pointer;
+        color: white;
+        border: none;
+        height: 50px;
+        // width: 480px;
+        font-size: 15px;
+        font-weight: 700;
+        border-radius: 8px;
+        background-color: $primary-bg;
+        box-shadow: $primary-bg-green-shadows;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: lighten($primary-bg, 3%);
+        }
+      }
+    }
+  }
+}

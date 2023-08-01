@@ -10,7 +10,6 @@ import Invoices from "../pages/invoices/Invoices"
 import Blogs from "../pages/blogs/Blogs"
 import List from "../pages/list/List"
 import Jobs from "../pages/jobs/Jobs"
-import AuthLayout from "../layouts/AuthLayout"
 import Login from "../pages/login/Login"
 import Register from "../pages/register/Register"
 
@@ -18,7 +17,6 @@ import Register from "../pages/register/Register"
 const router = createBrowserRouter([
     {
         path:"auth",
-        element:<AuthLayout />,
         children:[
           {
             path:"login",

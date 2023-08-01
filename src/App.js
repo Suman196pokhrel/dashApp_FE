@@ -1,6 +1,8 @@
 import React from 'react'
 import router from './routes'
 import { RouterProvider } from 'react-router-dom'
+import { LocalizationProvider } from '@mui/x-date-pickers'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 
 
@@ -9,7 +11,10 @@ import { RouterProvider } from 'react-router-dom'
 const App = () => {
 
   return (
-    <RouterProvider router={router} />
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <RouterProvider router={router} />
+
+    </LocalizationProvider>
   )
 }
 

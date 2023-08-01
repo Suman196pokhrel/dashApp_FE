@@ -1,0 +1,81 @@
+@import "../styles/variables.scss";
+
+.authLayout {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .leftContainer {
+    width: 50%;
+    height: 95%;
+    position: relative;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+    background: var(--11-background-a-light-mode-01-paper, #fff);
+    box-shadow: 0px 16px 32px -4px rgba(145, 158, 171, 0.24),
+      0px 0px 2px 0px rgba(145, 158, 171, 0.24);
+
+    .appLogo {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      img {
+        width: 40px;
+      }
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      font-size: 32px;
+      font-weight: 700;
+      color: $primary-text;
+      // background-color: red;
+      width: 465px;
+      // word-wrap: normal;
+    }
+
+    img {
+      width: 465px;
+      object-fit: cover;
+    }
+  }
+
+  .rightContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    .topInfo {
+      position: absolute;
+      top: 40px;
+      right: 90px;
+
+      p {
+        color: $primary-text;
+        font-weight: 500;
+        font-size: 14px;
+
+        span {
+          color: $secondary-green-text;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
