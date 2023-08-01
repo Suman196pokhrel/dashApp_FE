@@ -1,0 +1,111 @@
+.sidebar {
+  // background-color: rgba(143, 40, 40, 0.211);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  //   align-items: flex-end;
+  //   justify-content: space-between;
+  //   align-items: flex-start;
+
+  border-right: 1px solid rgb(215, 215, 215);
+
+  .logoContainer {
+    // background-color: blue;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-left: 15px;
+
+    img {
+      width: 40px;
+    }
+  }
+
+  .adminTab {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    background: var(--06-grey-200, #ebecec);
+    margin-bottom: 35px;
+    width: max-content;
+
+    img {
+      width: 40px;
+      border-radius: 50%;
+    }
+
+    .adminInfo {
+      p {
+        font-size: 14px;
+        color: #212b36;
+        font-weight: 600;
+      }
+      span {
+        font-size: 14px;
+        color: #637381;
+      }
+    }
+  }
+
+  .topic {
+    width: 100%;
+    text-align: left;
+    color: #637381;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    h1 {
+      color: #212b36;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+    // background-color: rgba(0, 0, 255, 0.196);
+
+    .item {
+      // background-color: yellow;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 50px;
+      width: 100%;
+      transition: 0.2s;
+
+      .svgIconCustom {
+        // background-color: red;
+        margin-right: 15px;
+      }
+
+      p {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+      }
+
+      .MuiSvgIcon-root {
+        /* Replace 'your_color' with your desired color value */
+        fill: #637381;
+      }
+
+      &:hover {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        color: #00ab55;
+        background-color: rgba(0, 171, 85, 0.08);
+      }
+    }
+
+    &:last-child {
+      h1 {
+        // background-color: red;
+        margin: 20px 0px;
+      }
+    }
+  }
+}

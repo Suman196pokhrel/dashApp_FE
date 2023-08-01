@@ -1,16 +1,27 @@
 .dashboardLayout {
-  background-color: purple;
+  //   background-color: purple;
   width: 100vw;
   display: flex;
   align-items: center;
+  // position: fixed;
 
   .sidebar {
-    width: 320px;
-    background-color: red;
+    position: sticky;
+    width: 250px;
+    // background-color: red;
+    height: 100vh;
+    padding: 15px 15px 10px 35px;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
   }
 
   .children {
     width: 100%;
-    background-color: yellow;
+    // background-color: yellow;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
