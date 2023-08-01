@@ -13,7 +13,7 @@ import SvgIcon from '@mui/material/SvgIcon'
 
 const Sidebar = () => {
 
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+    const [isDrawerOpen, setIsDrawerOpen] = useState(true)
 
 
     const handleDrawerOpen = () => {
@@ -26,29 +26,47 @@ const Sidebar = () => {
         setIsDrawerOpen(false)
     }
 
+
+    const sidebarWidth = isDrawerOpen ? `320px` : '80px'; // Change 80 to your desired width for each nav item
+
+
     return (
-        <div className='sidebar'>
+        <div className='sidebar' style={{ width: sidebarWidth }}>
+
+            <div className="drawerControl">
+                {isDrawerOpen ? (
+                    <IconButton onClick={handleDrawerClose}>
+                        <KeyboardArrowLeftIcon />
+                    </IconButton>
+                ) : (
+                    <IconButton onClick={handleDrawerOpen}>
+                        <KeyboardArrowRightIcon />
+                    </IconButton>
+                )}
+
+            </div>
+
             <div className="logoContainer">
                 <img src="/favicon/android-chrome-192x192.png" alt="brang logo" />
             </div>
 
             <div className="adminTab">
                 <img src="\static\mockPhotos\suman.jpeg" alt="AdminPic" />
-                <div className="adminInfo">
+                {isDrawerOpen ? (<div className="adminInfo">
                     <p>Suman Pokhrel</p>
                     <span>Admin</span>
-                </div>
+                </div>) : (<></>)}
             </div>
 
             {sidebarItems.map((topic) => (
-                <div className="topic" key={topic.id}>
-                    <h1>{topic.title}</h1>
+                <div className="topic" key={topic.id} style={isDrawerOpen ? {} : { paddingLeft: "0px" }}>
+                    {isDrawerOpen ? (<h1>{topic.title}</h1>) : (<></>)}
                     {topic.listItems.map((item) => (
                         <Link key={item} to={item.url}>
-                            <div className="item">
+                            <div className="item" style={isDrawerOpen ? { flexDirection: "row", } : { flexDirection: "column", height: "70px", backgroundColor: "", alignItems: "center", justifyContent: "center" }}>
                                 {<>{item.icon}</>}
                                 {/* <img src={item.icon} alt={item.title} /> */}
-                                <p>{item.title}</p>
+                                {isDrawerOpen ? (<p>{item.title}</p>) : (<p style={{ fontSize: "12px", margin: "0px" }}>{item.title}</p>)}
                             </div>
                         </Link>
 

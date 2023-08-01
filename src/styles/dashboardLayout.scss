@@ -7,13 +7,16 @@
 
   .sidebar {
     position: sticky;
-    width: 250px;
+    overflow: hidden;
+    // display: none;
+    // width: 250px;
     // background-color: red;
     height: 100vh;
-    padding: 15px 15px 10px 35px;
-    display: flex;
-    align-items: center;
+    padding: 35px 10px 10px 5px;
+    // display: flex;
+    // align-items: center;
     // justify-content: center;
+    transition: width 0.4s;
   }
 
   .children {

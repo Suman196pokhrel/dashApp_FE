@@ -1,11 +1,8 @@
 .sidebar {
-  // background-color: rgba(143, 40, 40, 0.211);
   display: flex;
   flex-direction: column;
+  // align-items: center;
   width: 100%;
-  //   align-items: flex-end;
-  //   justify-content: space-between;
-  //   align-items: flex-start;
 
   border-right: 1px solid rgb(215, 215, 215);
 
@@ -26,10 +23,11 @@
     justify-content: space-around;
     gap: 10px;
     width: 100%;
-    padding: 15px;
+    height: 70px;
+    padding: 10px;
     border-radius: 12px;
     background: var(--06-grey-200, #ebecec);
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     width: max-content;
 
     img {
@@ -56,6 +54,7 @@
     color: #637381;
     display: flex;
     flex-direction: column;
+    padding-left: 20px;
     // align-items: center;
     h1 {
       color: #212b36;
@@ -74,17 +73,15 @@
       height: 50px;
       width: 100%;
       transition: 0.2s;
-
-      .svgIconCustom {
-        // background-color: red;
-        margin-right: 15px;
-      }
+      border-radius: 8px;
+      margin: 0px 0px;
 
       p {
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: 22px;
+        margin-left: 15px;
       }
 
       .MuiSvgIcon-root {
@@ -107,5 +104,11 @@
         margin: 20px 0px;
       }
     }
+  }
+
+  .drawerControl {
+    position: absolute;
+    top: 5px;
+    right: 0;
   }
 }

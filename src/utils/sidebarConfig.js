@@ -35,7 +35,7 @@ export const sidebarItems = [
             },
             {
                 id: 2,
-                title: "E-commerce",
+                title: "Ecom",
                 url: "ecommerce",
                 icon: ICONS.ecommerce
             },
