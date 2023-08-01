@@ -49,14 +49,35 @@
         .dobPhone {
           width: 100%;
           display: flex;
+          flex-direction: row;
           align-items: center;
           justify-content: space-between;
           gap: 10px;
+          position: relative;
+          margin-bottom: 5px;
+
+          .ant-picker {
+            // background-color: red;
+            top: -10px;
+            height: 56px;
+            width: 50%;
+            transition: 0.2s;
+            // border: 1px solid rgba(145, 158, 171, 0.32);
+          }
+
+          .errorText {
+            font-size: 12px;
+            color: red;
+            position: absolute;
+            top: 59px;
+            left: 15px;
+          }
+
           .MuiTextField-root {
             height: 56px;
             width: 100%;
             margin-bottom: 24px;
-            font-size: 40px;
+            // font-size: 40px;
           }
         }
 
@@ -68,7 +89,7 @@
         }
       }
 
-      button {
+      .sumbit {
         cursor: pointer;
         color: white;
         border: none;
