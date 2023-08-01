@@ -3,32 +3,45 @@ import AuthLayout from "../../layouts/AuthLayout"
 import "./login.scss"
 import { TextField } from '@mui/material'
 import { Controller, useForm } from "react-hook-form"
+import { DevTool } from '@hookform/devtools'
+import { useNavigate } from 'react-router-dom'
+import { enqueueSnackbar } from 'notistack'
 
 var demoEmail = "demo@gmail.com"
 var demoPass = "password"
 
 
 
-
 const Login = () => {
 
-  const { handleSubmit, control, formState: { errors } } = useForm();
 
 
+  const { handleSubmit, register, formState: { errors } } = useForm();
+  const navigate = useNavigate()
 
 
   const handleLogin = (data) => {
+    console.log("Login Form Data => ", data)
 
-    console.log(data)
+    // Make API CALL
+    if (data.loginEmail === demoEmail && data.loginPassword === demoPass) {
+
+      // Change Auth State
+
+      // Navigate to DashAPP
+      enqueueSnackbar("Successfully Logged in", { variant: 'success' })
+
+      // navigate("/dashboard")
+    } else {
+      enqueueSnackbar("Sorry, You email or password was wrong", { variant: 'error' })
+    }
   }
-
-
 
 
   return (
     <AuthLayout>
-      <div className='login'>
 
+      <div className='login'>
 
 
         <div className="loginHeader">
@@ -43,57 +56,42 @@ const Login = () => {
         </div>
 
         <div className="loginForm">
-          <form onSubmit={handleSubmit(handleLogin)}>
+
+          <form onSubmit={handleSubmit(handleLogin)} noValidate>
 
             <div className="formFields">
-              <Controller
-                name="email"
-                control={control}
-                defaultValue=""
-                rules={{
-                  required: 'Email address is required',
+
+              <TextField
+                {...register("loginEmail", {
+                  required: 'Enter the email.',
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: 'Invalid email address',
-                  },
-                }}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    type='email'
-                    id='loginEmail'
-                    label="Email address"
-                    variant='outlined'
-                    error={!!errors.email}
-                    helperText={errors.email?.message}
-
-
-                  />
-                )}
+                    message: " Invalid email address"
+                  }
+                })}
+                type='email'
+                id='loginEmail'
+                label="Email address"
+                variant='outlined'
+                error={!!errors.loginEmail}
+                helperText={errors.loginEmail?.message}
               />
 
-              <Controller
-                name="password"
-                control={control}
-                defaultValue=""
-                rules={{
-                  required: 'Password is required',
+
+              <TextField
+                {...register("loginPassword", {
+                  required: "Enter the password",
                   minLength: {
                     value: 6,
-                    message: 'Password must be at least 6 characters',
-                  },
-                }}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    type="password"
-                    id="loginPassword"
-                    label="Password"
-                    variant="outlined"
-                    error={!!errors.password}
-                    helperText={errors.password?.message}
-                  />
-                )}
+                    message: "Password must be at least 6 characters"
+                  }
+                })}
+                type="password"
+                id="loginPassword"
+                label="Password"
+                variant="outlined"
+                error={!!errors.loginPassword}
+                helperText={errors.loginPassword?.message}
               />
             </div>
 
@@ -107,8 +105,8 @@ const Login = () => {
 
             <button type='submit'>Login</button>
           </form>
+          {/* <DevTool control={control} /> */}
         </div>
-
 
       </div>
     </AuthLayout>
