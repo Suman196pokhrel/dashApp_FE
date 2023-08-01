@@ -30,7 +30,7 @@ export const sidebarItems = [
             {
                 id: 1,
                 title: "App",
-                url: "",
+                url: "app",
                 icon: ICONS.dashboard
             },
             {
@@ -42,7 +42,7 @@ export const sidebarItems = [
             {
                 id: 3,
                 title: "analytics",
-                url: "",
+                url: "analytics",
                 icon: ICONS.analytics
             },
 

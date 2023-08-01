@@ -4,13 +4,13 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../components/sidebar/Sidebar";
 
 
-const DashLayout = ({ children }) => {
+const DashLayout = () => {
   return (
     <div className="dashboardLayout">
       <Sidebar />
 
       <div className="children">
-        {children}
+        <Outlet />
 
       </div>
     </div>
