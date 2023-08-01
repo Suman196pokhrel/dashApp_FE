@@ -1,0 +1,16 @@
+.dashboardLayout {
+  background-color: purple;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+
+  .sidebar {
+    width: 320px;
+    background-color: red;
+  }
+
+  .children {
+    width: 100%;
+    background-color: yellow;
+  }
+}

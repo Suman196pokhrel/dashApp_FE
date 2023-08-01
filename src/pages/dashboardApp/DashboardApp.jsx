@@ -1,8 +1,14 @@
 import React from 'react'
+import "./dashboardApp.scss"
+import DashLayout from '../../layouts/DashboardLayout'
 
 const DashboardApp = () => {
   return (
-    <div>DashboardApp</div>
+    <DashLayout>
+      <div className="dashboardApp">
+        Dashboard App
+      </div>
+    </DashLayout>
   )
 }
 

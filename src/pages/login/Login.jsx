@@ -6,7 +6,7 @@ import { Controller, useForm } from "react-hook-form"
 import { DevTool } from '@hookform/devtools'
 import { useNavigate } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
-
+import Checkbox from 'antd/es/checkbox/Checkbox'
 var demoEmail = "demo@gmail.com"
 var demoPass = "password"
 
@@ -16,7 +16,7 @@ const Login = () => {
 
 
 
-  const { handleSubmit, register, formState: { errors } } = useForm();
+  const { handleSubmit, register, formState: { errors }, control } = useForm();
   const navigate = useNavigate()
 
 
@@ -25,6 +25,7 @@ const Login = () => {
 
     // Make API CALL
     if (data.loginEmail === demoEmail && data.loginPassword === demoPass) {
+      //
 
       // Change Auth State
 
@@ -96,16 +97,23 @@ const Login = () => {
             </div>
 
             <div className="formUtils">
-              <div className="rememberMe">
-                <input type="checkbox" id='rememberMe' />
-                <label htmlFor="rememberMe">Remember me</label>
-              </div>
-              <p>Forgot Password?</p>
+              <Controller
+                name="rememberMe"
+                control={control}
+                defaultValue={true}
+                render={({ field }) => (
+                  <Checkbox {...field} checked={field.value} style={{}}>
+                    Remember Me
+                  </Checkbox>
+                )}
+              />
+
+              <p>Forgot password?</p>
             </div>
 
             <button type='submit'>Login</button>
           </form>
-          {/* <DevTool control={control} /> */}
+          <DevTool control={control} />
         </div>
 
       </div>

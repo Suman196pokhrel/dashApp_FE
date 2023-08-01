@@ -15,67 +15,66 @@ import Register from "../pages/register/Register"
 
 
 const router = createBrowserRouter([
-    {
-        path:"auth",
-        children:[
-          {
-            path:"login",
-            element:<Login />
-          },
-          {
-            path:"register",
-            element:<Register />
-          }
-        ]
-    },
-    {
-      path:"dashboard",
-      element:<DashLayout />,
-      children:[
-        {
-          path:"",
-          element:<DashboardApp />
-        },
-        {
-          path:"ecommerce",
-          element:<Ecommerce />
-        },
-        {
-          path:"analytics",
-          element:<Analytics />
-        },
-        {
-          path:"users",
-          element:<Users />
-        },
-        {
-          path:"products",
-          element:<Products />
-        },
-        {
-          path:"orders",
-          element:<Orders />
-        },
-        {
-          path:"invoices",
-          element:<Invoices />
-        },
-        {
-          path:"blogs",
-          element:<Blogs />
-        },
-        {
-          path:"list",
-          element:<List />
-        },
-        {
-          path:"jobs",
-          element:<Jobs />
-        },
-      ]
-    },
+  {
+    path: "auth",
+    children: [
+      {
+        path: "login",
+        element: <Login />
+      },
+      {
+        path: "register",
+        element: <Register />
+      }
+    ]
+  },
+  {
+    path: "dashboard",
+    children: [
+      {
+        path: "",
+        element: <DashboardApp />
+      },
+      {
+        path: "ecommerce",
+        element: <Ecommerce />
+      },
+      {
+        path: "analytics",
+        element: <Analytics />
+      },
+      {
+        path: "users",
+        element: <Users />
+      },
+      {
+        path: "products",
+        element: <Products />
+      },
+      {
+        path: "orders",
+        element: <Orders />
+      },
+      {
+        path: "invoices",
+        element: <Invoices />
+      },
+      {
+        path: "blogs",
+        element: <Blogs />
+      },
+      {
+        path: "list",
+        element: <List />
+      },
+      {
+        path: "jobs",
+        element: <Jobs />
+      },
+    ]
+  },
 
-  ])
+])
 
 
 
