@@ -5,6 +5,7 @@ import CarousalComp from '../../components/carousal/CarousalComp'
 import StatCard from '../../components/statCard/StatCard'
 import DoNut from '../../components/charts/donut/DoNut'
 import LineCh from '../../components/charts/line/LineCh'
+import Invoices from '../../components/invoices/Invoices'
 // import DashLayout from '../../layouts/DashboardLayout'
 
 const DashboardApp = () => {
@@ -71,7 +72,11 @@ const DashboardApp = () => {
       <div className="box box7 lineBox">
         <LineCh />
       </div>
-      <div className="box box8 invoiceBox">box8</div>
+
+      <div className="box box8 invoiceBox">
+        <Invoices />
+      </div>
+
       <div className="box box9 relatedAppBox">box9</div>
       <div className="box box10 installedCount">box10</div>
       <div className="box box11 authors">box11</div>

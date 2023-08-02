@@ -85,7 +85,7 @@ const LineCh = () => {
 
     return (
         <div className='lineCh' >
-            <h2>Total installed</h2>
+            <h2>Total Installed</h2>
             <Divider sx={{ marginBottom: 2 }} />
             <ReactApexChart options={chartData.options} series={chartData.series} type="line" height={400} />
 

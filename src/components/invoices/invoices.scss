@@ -1,0 +1,86 @@
+.invoices {
+  width: 100%;
+  height: 100%;
+  //   background-color: red;
+  border-radius: 16px;
+  // display: flex;
+  // flex-direction: column;
+  //   justify-content: space-evenly;
+
+  .invoiceHeader {
+    color: #212b36;
+    /* H6 heading */
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    padding: 5px 0px 10px 20px;
+  }
+
+  .invoiceTable {
+    .tableHeaderCells {
+      color: #637381;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 22px;
+    }
+
+    .tableRowCells {
+      color: #212b36;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+
+      .statusData {
+        width: fit-content;
+        padding: 2px 10px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 20px;
+      }
+      .paid {
+        color: #229a16;
+        background-color: rgba(84, 214, 44, 0.16);
+      }
+      .outOfDate {
+        color: #b72136;
+        background-color: rgba(255, 72, 66, 0.16);
+      }
+      .progress {
+        color: #b78103;
+        background-color: rgba(255, 193, 7, 0.16);
+      }
+    }
+  }
+
+  .invoiceFooter {
+    // background-color: rgba(255, 0, 0, 0.162);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 5px;
+
+    .viewBtn {
+      width: 30px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 40px;
+      cursor: pointer;
+      font-family: Public Sans;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 22px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #c0c0c05c;
+      }
+    }
+  }
+}
