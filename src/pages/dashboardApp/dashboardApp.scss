@@ -1,19 +1,23 @@
 .dashboardApp {
-  // background-color: rgba(255, 0, 0, 0.264);
-  padding: 0px 60px;
   // overflow-x: hidden;
+  // background-color: rgba(255, 0, 0, 0.264);
+
+  width: 85%;
 
   display: grid;
-  gap: 20px;
+  // align-items: center;
+  // justify-content: space-around;
+  gap: 24px;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(150px, auto);
   grid-auto-columns: minmax(150px, 250px);
 
   .box {
     // background-color: green;
+    // overflow: hidden;
     padding: 10px;
+    border: 1px solid rgb(213, 213, 213);
     border-radius: 16px;
-    // border: 2px solid rgb(225, 225, 225);
     background-color: white;
     box-shadow: 0px 16px 32px -4px rgba(145, 158, 171, 0.24),
       0px 0px 2px 0px rgba(145, 158, 171, 0.24);
@@ -22,5 +26,51 @@
   .box1 {
     grid-column: span 2;
     grid-row: span 2;
+    box-shadow: none;
+  }
+
+  .box2 {
+    grid-row: span 2;
+    box-shadow: none;
+  }
+
+  .statCards {
+    height: 166px;
+  }
+
+  .pieBox {
+    grid-row: span 3;
+  }
+
+  .lineBox {
+    grid-column: span 2;
+    grid-row: span 3;
+  }
+
+  .invoiceBox {
+    grid-column: span 2;
+    grid-row: span 3;
+  }
+
+  .relatedAppBox {
+    grid-row: span 3;
+    // height: 440px;
+  }
+
+  .installedCount {
+    grid-row: span 2;
+  }
+
+  .authors {
+    grid-row: span 2;
+  }
+
+  .percentageCards {
+  }
+
+  .conversions {
+  }
+
+  .applications {
   }
 }

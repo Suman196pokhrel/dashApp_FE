@@ -12,7 +12,10 @@ const DashLayout = () => {
 
       <div className="children">
         <TopBar />
-        <Outlet />
+        <div className="dashApps">
+          <Outlet />
+        </div>
+
 
       </div>
     </div>
