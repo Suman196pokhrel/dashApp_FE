@@ -2,6 +2,7 @@ import React from 'react'
 import "./dashboardApp.scss"
 import Banner from '../../components/banner/Banner'
 import CarousalComp from '../../components/carousal/CarousalComp'
+import StatCard from '../../components/statCard/StatCard'
 // import DashLayout from '../../layouts/DashboardLayout'
 
 const DashboardApp = () => {
@@ -21,9 +22,39 @@ const DashboardApp = () => {
         <CarousalComp />
       </div>
 
-      <div className="box box3 statCards">Stat 1</div>
-      <div className="box box4 statCards">Stat 2</div>
-      <div className="box box5 statCards">Stat 3</div>
+      <div className="box box3 statCards">
+        <StatCard
+          title={"Active Users"}
+          growth={true}
+          changePercentage={2.5}
+          totalValue={"18,765"}
+          chartName={"users"}
+        // chartColor={}
+        // chartData={}
+        />
+      </div>
+      <div className="box box4 statCards">
+        <StatCard
+          title={"Installed"}
+          growth={true}
+          changePercentage={5.5}
+          totalValue={"4,876"}
+          chartName={"installed"}
+          chartColor={"#2D99FF"}
+          chartData={[10, 20, 30, 40, 5, 10, 70, 80, 20, 50]}
+        />
+      </div>
+      <div className="box box5 statCards">
+        <StatCard
+          title={"Downloads"}
+          growth={false}
+          changePercentage={1.25}
+          totalValue={"678"}
+          chartName={"downloads"}
+          chartColor={"#FF6C40"}
+          chartData={[70, 60, 90, 40, 20, 10, 40, 10, 10, 5]}
+        />
+      </div>
       <div className="box box6 pieBox">box6</div>
       <div className="box box7 lineBox">box7</div>
       <div className="box box8 invoiceBox">box8</div>
