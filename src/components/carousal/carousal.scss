@@ -9,6 +9,7 @@
     // background-color: red;
     height: 100%;
     width: 100%;
+    position: relative;
     // background-color: purple;
 
     .slick-prev {
@@ -85,9 +86,31 @@
     }
 
     .slick-dots {
+      position: absolute;
+      // top: 0px;
+      // left: 450px;
+      left: -180px;
+      top: 10px;
+      z-index: 20;
+      // opacity: 0.5;
+
       li {
+        margin: 0;
+        padding: 0;
+
         button {
-          display: none;
+          &::before {
+            content: "";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Customize the size of the dots here */
+            width: 10px;
+            height: 10px;
+            background-color: #949494; /* Change the color as needed */
+            border-radius: 50%;
+            opacity: 0.55;
+          }
         }
       }
     }
