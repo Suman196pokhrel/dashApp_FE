@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./topbar.scss"
-import { IconButton } from '@mui/material'
+import { IconButton, TextField } from '@mui/material'
 import { SearchOutlined } from '@mui/icons-material'
 import Badge from '@mui/material/Badge'
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -18,6 +18,10 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Link } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
+import { Modal } from 'antd'
+import SearchIcon from '@mui/icons-material/Search';
+import InputBase from '@mui/material/InputBase';
+
 
 
 const StyledMenuComp = styled((props) => (
@@ -63,10 +67,52 @@ const StyledMenuComp = styled((props) => (
     },
 }));
 
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+        backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+        marginLeft: theme.spacing(1),
+        width: 'auto',
+    },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '12ch',
+            '&:focus': {
+                width: '20ch',
+            },
+        },
+    },
+}));
+
 
 
 const TopBar = () => {
-
+    const [isSearchModalOpen, setIsSearchModalOpen] = useState(false)
     const [anchorEl, setAnchorEl] = useState(null)
     const open = Boolean(anchorEl)
     const handleClick = (event) => {
@@ -76,12 +122,22 @@ const TopBar = () => {
         setAnchorEl(null);
     };
 
+    const showModal = () => {
+        setIsSearchModalOpen(true);
+    };
+    const handleOk = () => {
+        setIsSearchModalOpen(false);
+    };
+    const handleCancel = () => {
+        setIsSearchModalOpen(false);
+    };
+
 
 
     return (
         <div className='topbar'>
             <div className="search">
-                <IconButton>
+                <IconButton onClick={showModal}>
                     <SearchOutlined />
                 </IconButton>
             </div>
@@ -139,6 +195,24 @@ const TopBar = () => {
 
 
             </StyledMenuComp>
+
+            <Modal open={isSearchModalOpen} onCancel={handleCancel} footer={[<></>]}>
+                <Search>
+                    <SearchIconWrapper>
+                        <SearchIcon />
+                    </SearchIconWrapper>
+                    <StyledInputBase
+                        placeholder="Search…"
+                        inputProps={{ 'aria-label': 'search' }}
+                    />
+                </Search>
+                <Divider sx={{ my: 2 }} />
+                <div className="searchResults">
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                </div>
+            </Modal>
 
 
         </div >

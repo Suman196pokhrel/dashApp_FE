@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <SnackbarProvider maxSnack={3} autoHideDuration={2000} TransitionComponent={Grow} preventDuplicate>
+      <SnackbarProvider maxSnack={3} autoHideDuration={2000} preventDuplicate>
         <RouterProvider router={router} />
       </SnackbarProvider>
 
