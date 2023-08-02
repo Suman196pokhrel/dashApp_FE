@@ -72,6 +72,7 @@ const applications = [
 
 
 
+
 const RelatedApplications = () => {
     return (
         <div className='relatedApps'>
@@ -92,7 +93,7 @@ const RelatedApplications = () => {
                                         <AppleIcon fontSize='small' />
                                     ) : (<WindowIcon fontSize='small' />)}
                                     <p>{item.platform.title}</p>
-                                    <p>{item.platform.amount}</p>
+                                    <p className={`amount ${item.platform.amount === "Free" ? '' : 'notFree'}`}>{item.platform.amount}</p>
                                 </div>
                             </div>
                         </div>

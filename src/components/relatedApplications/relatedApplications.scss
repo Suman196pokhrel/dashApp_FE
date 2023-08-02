@@ -72,6 +72,23 @@
             align-items: center;
             justify-content: center;
             // background-color: red;
+
+            .amount {
+              margin-left: 8px;
+              width: fit-content;
+              padding: 2px 10px;
+              border-radius: 5px;
+              text-align: center;
+              font-size: 12px;
+              font-weight: 700;
+              color: #229a16;
+              background-color: rgba(84, 214, 44, 0.16);
+            }
+
+            .notFree {
+              color: #b72136;
+              background-color: rgba(255, 72, 66, 0.16);
+            }
           }
         }
       }
