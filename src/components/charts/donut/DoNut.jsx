@@ -36,7 +36,7 @@ const DoNut = ({ colors = ['#FF5630', '#00A76F', '#FFAB00', '#00B8D9'], labels =
             plotOptions: {
                 pie: {
                     donut: {
-                        size: '85%', // Set the thickness of the donut chart (in percentage)
+                        size: '90%', // Set the thickness of the donut chart (in percentage)
                     },
                 },
 
@@ -46,6 +46,7 @@ const DoNut = ({ colors = ['#FF5630', '#00A76F', '#FFAB00', '#00B8D9'], labels =
             legend: {
                 position: 'bottom',
                 horizontalAlign: 'center',
+                offsetY: 8
             },
             responsive: [
                 {

@@ -67,7 +67,9 @@ const DashboardApp = () => {
         />
       </div>
 
-      <div className="box box7 lineBox">box7</div>
+      <div className="box box7 lineBox">
+
+      </div>
       <div className="box box8 invoiceBox">box8</div>
       <div className="box box9 relatedAppBox">box9</div>
       <div className="box box10 installedCount">box10</div>
