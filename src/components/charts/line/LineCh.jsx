@@ -8,12 +8,12 @@ const LineCh = () => {
     const chartData = {
         series: [
             {
-                name: 'Series A',
-                data: [30, 40, 35, 50, 49, 60, 70, 91, 125, 90],
+                name: 'Nepal',
+                data: [30, 40, 35, 50, 49, 60, 70, 91, 125, 90,],
                 color: '#FFB820',
             },
             {
-                name: 'Series B',
+                name: 'India',
                 data: [12, 43, 28, 56, 78, 64, 43, 32, 76, 85],
                 color: '#15B47A',
             },
@@ -39,6 +39,7 @@ const LineCh = () => {
             },
             stroke: {
                 curve: 'smooth',
+                width: 3,
             },
             grid: {
                 show: true,
@@ -64,12 +65,26 @@ const LineCh = () => {
                     opacity: 0.5, // Set the opacity of the grid lines
                 },
             },
+            markers: {
+                size: 3,
+                colors: '#fff',
+                strokeColors: ['#FFB820', '#15B47A'],
+                strokeWidth: 2,
+            },
+            // dataLabels: {
+            //     enabled: true, // Enable data labels for markers
+            //     style: {
+            //         fontSize: '12px',
+            //         fontWeight: 'bold',
+            //         colors: ['#FFB820', '#15B47A'], // Colors for data labels
+            //     },
+            // }
         },
     };
 
 
     return (
-        <div className='lineCh'>
+        <div className='lineCh' >
             <h2>Total installed</h2>
             <Divider sx={{ marginBottom: 2 }} />
             <ReactApexChart options={chartData.options} series={chartData.series} type="line" height={400} />
