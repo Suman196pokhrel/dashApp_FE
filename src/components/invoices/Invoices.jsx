@@ -36,6 +36,14 @@ const rows = [
     { invoice: 'INV-1994', platform: 'Mac', amount: '$52.17', status: 'Paid' },
 ]
 
+const headers = [
+    'Invoice ID',
+    'Category',
+    'Price',
+    'Status',
+    ''
+]
+
 function getStatusClass(status) {
     switch (status) {
         case 'Paid':
@@ -98,7 +106,7 @@ const StyledMenu = styled((props) => (
 
 
 
-const Invoices = () => {
+const Invoices = ({ title = "Top Invoices", tableHeaders = headers, tableRows = rows }) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -112,18 +120,19 @@ const Invoices = () => {
 
     return (
         <div className='invoices'>
-            <div className="invoiceHeader">New Invoice</div>
+            <div className="invoiceHeader">{title}</div>
             <Divider />
             <div className="invoiceTable">
                 <TableContainer>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead sx={{ backgroundColor: "#F4F6F8" }}>
-                            <TableRow >
-                                <TableCell className='tableHeaderCells' align='left' sx={{}}>Invoice ID</TableCell>
-                                <TableCell className='tableHeaderCells' align="left">Category</TableCell>
-                                <TableCell className='tableHeaderCells' align="left">Price</TableCell>
-                                <TableCell className='tableHeaderCells' align="left">Status</TableCell>
-                                <TableCell className='tableHeaderCells' align="right"></TableCell>
+                            <TableRow
+
+                            >
+                                {headers.map((item) => (
+                                    <TableCell className='tableHeaderCells' align='left' key={item}>{item}</TableCell>
+                                ))}
+
                             </TableRow>
                         </TableHead>
                         <TableBody sx={{ backgroundColor: "white" }}>
