@@ -3,6 +3,7 @@ import "./dashboardApp.scss"
 import Banner from '../../components/banner/Banner'
 import CarousalComp from '../../components/carousal/CarousalComp'
 import StatCard from '../../components/statCard/StatCard'
+import DoNut from '../../components/charts/donut/DoNut'
 // import DashLayout from '../../layouts/DashboardLayout'
 
 const DashboardApp = () => {
@@ -33,6 +34,7 @@ const DashboardApp = () => {
         // chartData={}
         />
       </div>
+
       <div className="box box4 statCards">
         <StatCard
           title={"Installed"}
@@ -44,6 +46,7 @@ const DashboardApp = () => {
           chartData={[10, 20, 30, 40, 5, 10, 70, 80, 20, 50]}
         />
       </div>
+
       <div className="box box5 statCards">
         <StatCard
           title={"Downloads"}
@@ -55,7 +58,15 @@ const DashboardApp = () => {
           chartData={[70, 60, 90, 40, 20, 10, 40, 10, 10, 5]}
         />
       </div>
-      <div className="box box6 pieBox">box6</div>
+
+      <div className="box box6 pieBox">
+        <DoNut
+        // type=''
+        // labels={}
+        // colors={}
+        />
+      </div>
+
       <div className="box box7 lineBox">box7</div>
       <div className="box box8 invoiceBox">box8</div>
       <div className="box box9 relatedAppBox">box9</div>
