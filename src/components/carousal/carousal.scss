@@ -1,0 +1,95 @@
+.carousalComp {
+  position: relative;
+  height: 324px;
+  width: 504px;
+  border: 1px solid rgb(206, 206, 206);
+  border-radius: 16px;
+
+  .slick-slider {
+    // background-color: red;
+    height: 100%;
+    width: 100%;
+    // background-color: purple;
+
+    .slick-prev {
+      position: absolute;
+      top: 30px;
+      left: 400px;
+      z-index: 15;
+      opacity: 0.5;
+    }
+
+    .slick-list {
+      height: 100%;
+      width: 100%;
+      border-radius: 16px;
+      .slick-track {
+        .slick-slide {
+          .carItem {
+            img {
+              width: 100%;
+              // height:;
+              object-fit: cover;
+              border-radius: 16px;
+            }
+
+            .textInfo {
+              background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.55) 100%
+              );
+              position: absolute;
+              z-index: 10;
+              top: 20%;
+              height: 100%;
+              width: 100%;
+              padding-left: 24px;
+              display: flex;
+              flex-direction: column;
+              align-items: start;
+              justify-content: center;
+
+              h1 {
+                font-size: 16px;
+                color: #85ff91;
+                margin-bottom: 15px;
+                font-weight: 700;
+              }
+
+              .title {
+                font-size: 23px;
+                color: white;
+                font-weight: 700;
+                margin-bottom: 10px;
+              }
+
+              .subText {
+                font-size: 14px;
+                color: rgb(232, 232, 232);
+                width: 80%;
+                font-weight: 400;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .slick-next {
+      position: absolute;
+      top: 30px;
+      left: 450px;
+      z-index: 15;
+      opacity: 0.5;
+    }
+
+    .slick-dots {
+      li {
+        button {
+          display: none;
+        }
+      }
+    }
+  }
+}

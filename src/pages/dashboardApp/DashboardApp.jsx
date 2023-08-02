@@ -1,12 +1,14 @@
 import React from 'react'
 import "./dashboardApp.scss"
 import Banner from '../../components/banner/Banner'
+import CarousalComp from '../../components/carousal/CarousalComp'
 // import DashLayout from '../../layouts/DashboardLayout'
 
 const DashboardApp = () => {
   return (
 
     <div className="dashboardApp">
+
       <div className="box box1">
         <Banner
           title={"Suman Pokhrel"}
@@ -14,7 +16,11 @@ const DashboardApp = () => {
           buttonText={"Go now"}
         />
       </div>
-      <div className="box box2">box2</div>
+
+      <div className="box box2">
+        <CarousalComp />
+      </div>
+
       <div className="box box3 statCards">Stat 1</div>
       <div className="box box4 statCards">Stat 2</div>
       <div className="box box5 statCards">Stat 3</div>

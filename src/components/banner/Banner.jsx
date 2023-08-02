@@ -1,6 +1,5 @@
 import React from 'react'
 import "./banner.scss"
-import ViewSvg from "../../utils/ViewSvg"
 
 const Banner = ({ title, desc, buttonText }) => {
     return (
