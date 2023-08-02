@@ -4,7 +4,6 @@ import "./register.scss"
 import { TextField } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { DatePicker } from "antd"
-import { DevTool } from '@hookform/devtools'
 import { enqueueSnackbar } from 'notistack'
 import { useNavigate } from 'react-router-dom'
 

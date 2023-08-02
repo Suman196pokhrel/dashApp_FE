@@ -3,7 +3,6 @@ import AuthLayout from "../../layouts/AuthLayout"
 import "./login.scss"
 import { TextField } from '@mui/material'
 import { Controller, useForm } from "react-hook-form"
-import { DevTool } from '@hookform/devtools'
 import { useNavigate } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
 import Checkbox from 'antd/es/checkbox/Checkbox'
@@ -113,7 +112,7 @@ const Login = () => {
 
             <button type='submit'>Login</button>
           </form>
-          <DevTool control={control} />
+          {/* <DevTool control={control} /> */}
         </div>
 
       </div>

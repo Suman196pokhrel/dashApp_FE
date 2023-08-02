@@ -1,0 +1,66 @@
+@import "../../styles//variables.scss";
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #c8facd;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+
+  .bannerLeft {
+    flex: 2;
+    // background-color: red;
+    padding-left: 40px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-evenly;
+
+    h1 {
+      color: #212b36;
+      font-size: 24px;
+    }
+    p {
+      color: #5b6d80;
+      width: 350px;
+      font-size: 14px;
+    }
+    button {
+      @include primaryGreenButton;
+      display: flex;
+      padding: 0px 10px;
+      justify-content: center;
+      align-items: center;
+      width: fit-content;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 8px;
+      height: 40px;
+    }
+  }
+
+  .bannerRight {
+    // background-color: blue;
+    flex: 1;
+    position: relative;
+    width: fit-content;
+    // height: 100%;
+
+    .imgBg {
+      width: 310px;
+      position: absolute;
+      top: -115px;
+      right: 30px;
+    }
+
+    .imgFront {
+      height: 200px;
+      position: absolute;
+      top: -100px;
+      right: 55px;
+    }
+  }
+}

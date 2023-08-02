@@ -1,15 +1,31 @@
 // TEXT
-$primary-text:#212B36;
-$secondary-text : #637381;
+$primary-text: #212b36;
+$secondary-text: #637381;
 
-$primary-green-text:#005249;
-$secondary-green-text :#00AB55;
+$primary-green-text: #005249;
+$secondary-green-text: #00ab55;
 
+// Buttons
+@mixin primaryGreenButton {
+  cursor: pointer;
+  color: white;
+  border: none;
+  height: 50px;
+  // width: 480px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 8px;
+  background-color: $primary-bg;
+  box-shadow: $primary-bg-green-shadows;
+  transition: background-color 0.2s ease;
 
+  &:hover {
+    background-color: lighten($primary-bg, 3%);
+  }
+}
 
-// BG 
-$primary-bg:#00AB55;
-
+// BG
+$primary-bg: #00ab55;
 
 // Shadows
 $primary-bg-green-shadows: 0px 8px 16px 0px rgba(0, 171, 85, 0.24);

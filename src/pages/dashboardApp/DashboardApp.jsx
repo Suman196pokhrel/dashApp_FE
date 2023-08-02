@@ -1,12 +1,19 @@
 import React from 'react'
 import "./dashboardApp.scss"
-import DashLayout from '../../layouts/DashboardLayout'
+import Banner from '../../components/banner/Banner'
+// import DashLayout from '../../layouts/DashboardLayout'
 
 const DashboardApp = () => {
   return (
 
     <div className="dashboardApp">
-      <div className="box box1">box1</div>
+      <div className="box box1">
+        <Banner
+          title={"Suman Pokhrel"}
+          desc={"If you are going to use a passage of Lorem Ipsum, e going tyou need to be sure there isn't anything"}
+          buttonText={"Go now"}
+        />
+      </div>
       <div className="box box2">box2</div>
       <div className="box box3 statCards">Stat 1</div>
       <div className="box box4 statCards">Stat 2</div>
