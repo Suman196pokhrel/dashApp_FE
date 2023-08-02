@@ -2,12 +2,15 @@
   //   background-color: purple;
   width: 100vw;
   display: flex;
+  position: relative;
   // align-items: center;
   // position: fixed;
 
   .sidebar {
-    position: sticky;
     overflow: hidden;
+    position: sticky;
+    top: 0;
+    left: 0;
     // display: none;
     // width: 250px;
     // background-color: red;

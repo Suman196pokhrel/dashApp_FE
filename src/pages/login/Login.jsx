@@ -31,7 +31,7 @@ const Login = () => {
 
       // Navigate to DashAPP
       enqueueSnackbar("Successfully Logged in", { variant: 'success' })
-      navigate("/dashboard")
+      navigate("/dashboard/app")
 
     } else {
       enqueueSnackbar("Sorry, You email or password was wrong", { variant: 'error' })
