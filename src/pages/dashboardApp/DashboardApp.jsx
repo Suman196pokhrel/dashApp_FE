@@ -6,6 +6,7 @@ import StatCard from '../../components/statCard/StatCard'
 import DoNut from '../../components/charts/donut/DoNut'
 import LineCh from '../../components/charts/line/LineCh'
 import Invoices from '../../components/invoices/Invoices'
+import RelatedApplications from '../../components/relatedApplications/RelatedApplications'
 // import DashLayout from '../../layouts/DashboardLayout'
 
 const DashboardApp = () => {
@@ -77,11 +78,18 @@ const DashboardApp = () => {
         <Invoices />
       </div>
 
-      <div className="box box9 relatedAppBox">box9</div>
+      <div className="box box9 relatedAppBox">
+        <RelatedApplications />
+      </div>
+
       <div className="box box10 installedCount">box10</div>
+
       <div className="box box11 authors">box11</div>
+
       <div className="box box12 conversions percentageCards">box12</div>
+
       <div className="box box13 applications percentageCards">box13</div>
+
     </div>
 
   )
