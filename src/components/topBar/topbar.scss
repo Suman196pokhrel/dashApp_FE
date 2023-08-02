@@ -1,0 +1,44 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  //   background-color: red;
+  padding: 5px 40px;
+  margin-bottom: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .search {
+  }
+
+  .topRight {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    // background-color: rgba(255, 0, 0, 0.151);
+    .flag {
+      width: 25px;
+    }
+    // color: #32e089;
+
+    .rotateSetting {
+      animation: rotate 8s linear infinite;
+    }
+  }
+
+  .customMenu {
+    background-color: red;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

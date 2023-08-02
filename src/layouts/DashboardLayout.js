@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/dashboardLayout.scss"
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/sidebar/Sidebar";
+import TopBar from "../components/topBar/TopBar";
 
 
 const DashLayout = () => {
@@ -10,6 +11,7 @@ const DashLayout = () => {
       <Sidebar />
 
       <div className="children">
+        <TopBar />
         <Outlet />
 
       </div>

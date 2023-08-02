@@ -93,8 +93,8 @@
         font-size: 14px;
         font-style: normal;
         font-weight: 600;
-        color: #00ab55;
-        background-color: rgba(0, 171, 85, 0.08);
+        // color: #212b36;
+        background-color: #f6f7f8;
       }
     }
 
@@ -110,5 +110,15 @@
     position: absolute;
     top: 5px;
     right: 0;
+  }
+
+  .selectedLink {
+    color: #00ab55;
+    background-color: #00ab5618;
+  }
+
+  .nonSelectedHover {
+    background-color: #6373811b;
+    color: #212b36;
   }
 }
