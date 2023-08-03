@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AuthLayout from '../../layouts/AuthLayout'
 import "./register.scss"
-import { TextField } from '@mui/material'
+import { CircularProgress, TextField } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { DatePicker } from "antd"
 import { enqueueSnackbar } from 'notistack'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { smoothComeUp } from '../../utils/framerAnimations'
 
 
 
@@ -13,7 +15,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
   const navigate = useNavigate()
-
+  const [isLoading, setIsLoading] = useState(false)
   const { register, handleSubmit, control, formState: { errors } } = useForm()
   const maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() - 5);
@@ -24,8 +26,13 @@ const Register = () => {
     // Change Auth State
 
     // Navigate to DashAPP
-    enqueueSnackbar("Successfully registered", { variant: 'success' })
-    navigate("/auth/login")
+    setIsLoading(true)
+    setTimeout(() => {
+      enqueueSnackbar("Successfully registered", { variant: 'success' })
+      navigate("/auth/login")
+      setIsLoading(false)
+
+    }, 1300)
 
 
   }
@@ -34,7 +41,7 @@ const Register = () => {
 
   return (
     <AuthLayout>
-      <div className="register">
+      <motion.div className="register" {...smoothComeUp}>
 
 
         <div className="registerHeader">
@@ -179,12 +186,12 @@ const Register = () => {
             </div>
 
 
-            <button className='sumbit' type='submit'>Register</button>
+            <button className='sumbit' type='submit'>{isLoading ? <CircularProgress color='inherit' size={25} /> : 'Register'}</button>
           </form>
           {/* <DevTool control={control} /> */}
         </div>
 
-      </div>
+      </motion.div>
     </AuthLayout>
   )
 }

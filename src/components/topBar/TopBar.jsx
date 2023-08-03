@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./topbar.scss"
-import { IconButton, TextField } from '@mui/material'
+import { CircularProgress, IconButton, TextField } from '@mui/material'
 import { SearchOutlined } from '@mui/icons-material'
 import Badge from '@mui/material/Badge'
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -11,7 +11,7 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import { styled, alpha } from "@mui/material/styles"
 import Divider from '@mui/material/Divider';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
 import { Modal } from 'antd'
 import SearchIcon from '@mui/icons-material/Search';
@@ -108,7 +108,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const TopBar = () => {
     const [isSearchModalOpen, setIsSearchModalOpen] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [anchorEl, setAnchorEl] = useState(null)
+    const navigate = useNavigate()
     const open = Boolean(anchorEl)
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -127,6 +129,14 @@ const TopBar = () => {
         setIsSearchModalOpen(false);
     };
 
+    const handleLogout = () => {
+        setIsLoading(true)
+        setTimeout(() => {
+            enqueueSnackbar("Logged out", { variant: "success" })
+            navigate("/auth/login")
+            setIsLoading(false)
+        }, 1300)
+    }
 
 
     return (
@@ -181,11 +191,13 @@ const TopBar = () => {
                 </MenuItem>
                 <Divider sx={{ my: 0.5 }} />
 
-                <Link to={"/auth/login"} onClick={() => enqueueSnackbar("Logged out", { variant: "success" })}>
-                    <MenuItem>
-                        <p style={{ color: "#FF5D39", fontSize: "16px", fontWeight: '600' }}>Logout</p>
-                    </MenuItem>
-                </Link>
+
+                <MenuItem onClick={handleLogout}>
+                    <p style={{ color: "#FF5D39", fontSize: "16px", fontWeight: '600' }}>
+                        {isLoading ? <CircularProgress sx={{ color: 'inherit' }} /> : 'Logout'}
+                    </p>
+                </MenuItem>
+
 
 
 

@@ -12,6 +12,8 @@ import List from "../pages/list/List"
 import Jobs from "../pages/jobs/Jobs"
 import Login from "../pages/login/Login"
 import Register from "../pages/register/Register"
+import ForgotPw from "../pages/forgotPw/ForgotPw"
+import NewPw from "../pages/newPw/NewPw"
 
 
 const router = createBrowserRouter([
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />
+      },
+      {
+        path: "forgotPw",
+        element: <ForgotPw />
+      },
+      {
+        path: "newPw",
+        element: <NewPw />
       }
     ]
   },

@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AuthLayout from "../../layouts/AuthLayout"
 import "./login.scss"
-import { TextField } from '@mui/material'
+import { CircularProgress, TextField } from '@mui/material'
 import { Controller, useForm } from "react-hook-form"
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
 import Checkbox from 'antd/es/checkbox/Checkbox'
+import { motion } from 'framer-motion'
+import { smoothComeUp } from "../../utils/framerAnimations"
+
+
 var demoEmail = "demo@gmail.com"
 var demoPass = "password"
 
@@ -16,21 +20,26 @@ const Login = () => {
 
 
   const { handleSubmit, register, formState: { errors }, control } = useForm();
+  const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
 
 
   const handleLogin = (data) => {
-    console.log("Login Form Data => ", data)
-
     // Make API CALL
     if (data.loginEmail === demoEmail && data.loginPassword === demoPass) {
-      //
 
-      // Change Auth State
 
-      // Navigate to DashAPP
-      enqueueSnackbar("Successfully Logged in", { variant: 'success' })
-      navigate("/dashboard/app")
+      setIsLoading(true)
+
+      setTimeout(() => {
+        // Navigate to DashAPP
+
+        enqueueSnackbar("Successfully Logged in", { variant: 'success' })
+        navigate("/dashboard/app")
+        setIsLoading(false)
+      }, 1300)
+
+
 
     } else {
       enqueueSnackbar("Sorry, You email or password was wrong", { variant: 'error' })
@@ -41,7 +50,11 @@ const Login = () => {
   return (
     <AuthLayout>
 
-      <div className='login'>
+      <motion.div
+
+        className='login'
+        {...smoothComeUp}
+      >
 
 
         <div className="loginHeader">
@@ -107,15 +120,15 @@ const Login = () => {
                 )}
               />
 
-              <p>Forgot password?</p>
+              <Link to={"/auth/forgotPw"}><p>Forgot password?</p></Link>
             </div>
 
-            <button type='submit'>Login</button>
+            <button type='submit'>{isLoading ? <CircularProgress color='inherit' size={25} /> : 'Login'}</button>
           </form>
           {/* <DevTool control={control} /> */}
         </div>
 
-      </div>
+      </motion.div>
     </AuthLayout>
 
   )
