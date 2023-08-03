@@ -79,6 +79,7 @@
         background-color: $primary-bg;
         box-shadow: $primary-bg-green-shadows;
         transition: background-color 0.2s ease;
+        margin-top: 24px;
 
         &:hover {
           background-color: lighten($primary-bg, 3%);

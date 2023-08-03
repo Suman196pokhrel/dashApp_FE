@@ -32,7 +32,7 @@ const ForgotPw = () => {
         setTimeout(() => {
             // Navigate to DashAPP
 
-            enqueueSnackbar("Email sent sucessfully", { variant: 'success' })
+            // enqueueSnackbar("Email sent sucessfully", { variant: 'success' })
             navigate("/auth/newPw")
             setIsLoading(false)
         }, 1200)
@@ -60,7 +60,7 @@ const ForgotPw = () => {
 
                 <div className="fpHeader">
                     <h1>Forgot your password ?</h1>
-                    <p>Please enter the email address associated with your account, and we'll email you a link to reset your password.</p>
+                    <p>Please enter the email address associated with your account, and we'll email you a OTP.</p>
                 </div>
 
 
