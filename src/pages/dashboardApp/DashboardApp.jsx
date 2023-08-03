@@ -10,18 +10,37 @@ import RelatedApplications from '../../components/relatedApplications/RelatedApp
 import InstalledCountries from '../../components/installedCountries/InstalledCountries'
 import TopAuthors from '../../components/topAuthors/TopAuthors'
 import PercentageCards from '../../components/percentageCards/PercentageCards'
-// import DashLayout from '../../layouts/DashboardLayout'
+import { motion } from 'framer-motion'
+import { smoothComeUp } from '../../utils/framerAnimations'
+
+const appAnimate = {
+  initial: { y: 70, opacity: 0 },
+  animate: {
+    y: 0,
+    opacity: 1,
+  },
+  transition: {
+    type: 'spring',
+    duration: 1, // Change the duration value here (in seconds)
+  },
+};
+
+
 
 const DashboardApp = () => {
+
   return (
 
-    <div className="dashboardApp">
+    <motion.div className="dashboardApp" {...appAnimate}>
 
       <div className="box box1">
         <Banner
-          title={"Suman Pokhrel"}
+          title1={"Welcome back 👋"}
+          title2={"Suman Pokhrel"}
           desc={"If you are going to use a passage of Lorem Ipsum, e going tyou need to be sure there isn't anything"}
           buttonText={"Go now"}
+          imgBg={"/static/illustrations/illustrations_banner.svg"}
+          img={"/static/illustrations/character_3.png"}
         />
       </div>
 
@@ -109,7 +128,7 @@ const DashboardApp = () => {
         />
       </div>
 
-    </div>
+    </motion.div>
 
   )
 }
