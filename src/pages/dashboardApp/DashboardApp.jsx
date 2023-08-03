@@ -8,6 +8,7 @@ import LineCh from '../../components/charts/line/LineCh'
 import Invoices from '../../components/invoices/Invoices'
 import RelatedApplications from '../../components/relatedApplications/RelatedApplications'
 import InstalledCountries from '../../components/installedCountries/InstalledCountries'
+import TopAuthors from '../../components/topAuthors/TopAuthors'
 // import DashLayout from '../../layouts/DashboardLayout'
 
 const DashboardApp = () => {
@@ -87,7 +88,9 @@ const DashboardApp = () => {
         <InstalledCountries />
       </div>
 
-      <div className="box box11 authors">box11</div>
+      <div className="box box11 authors">
+        <TopAuthors />
+      </div>
 
       <div className="box box12 conversions percentageCards">box12</div>
 
