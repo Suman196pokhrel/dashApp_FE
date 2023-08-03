@@ -9,6 +9,7 @@ import Invoices from '../../components/invoices/Invoices'
 import RelatedApplications from '../../components/relatedApplications/RelatedApplications'
 import InstalledCountries from '../../components/installedCountries/InstalledCountries'
 import TopAuthors from '../../components/topAuthors/TopAuthors'
+import PercentageCards from '../../components/percentageCards/PercentageCards'
 // import DashLayout from '../../layouts/DashboardLayout'
 
 const DashboardApp = () => {
@@ -92,9 +93,21 @@ const DashboardApp = () => {
         <TopAuthors />
       </div>
 
-      <div className="box box12 conversions percentageCards">box12</div>
+      <div className="box box12 conversions percentageCards">
+        <PercentageCards />
+      </div>
 
-      <div className="box box13 applications percentageCards">box13</div>
+      <div className="box box13 applications percentageCards">
+        <PercentageCards
+          data={[48]}
+          text={55566}
+          subText='Applications'
+          icon='mail'
+          bgColor='#006C9C'
+          barColor='#1BC8E0'
+          trackColor='#17749E'
+        />
+      </div>
 
     </div>
 
