@@ -26,6 +26,37 @@ const appAnimate = {
 };
 
 
+const carousalItemsEcom = [
+  {
+    id: 1,
+    title: "Arizona Soft Footwalk Sandal",
+    img: "/static/mockPhotos/products/product_1.jpg"
+  },
+  {
+    id: 2,
+    title: "Nike Air Zoom",
+    img: "/static/mockPhotos/products/product_2.jpg"
+  },
+  {
+    id: 3,
+    title: "Boston Soft Footbed Sandal",
+    img: "/static/mockPhotos/products/product_3.jpg"
+  },
+  {
+    id: 4,
+    title: "Nike AirForce 1",
+    img: "/static/mockPhotos/products/product_4.jpg"
+  },
+  {
+    id: 5,
+    title: "Nike Air Zoom Pegasus37",
+    img: "/static/mockPhotos/products/product_5.jpg"
+  }
+]
+
+
+
+
 
 const Ecommerce = () => {
 
@@ -44,7 +75,7 @@ const Ecommerce = () => {
       </div>
 
       <div className="box box2">
-        <CarousalComp />
+        <CarousalComp carousalItems={carousalItemsEcom} />
       </div>
 
       <div className="box box3 statCards">
