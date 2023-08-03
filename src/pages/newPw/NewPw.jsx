@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import AuthLayout from "../../layouts/AuthLayout"
 import "./newPw.scss"
-import { CircularProgress, TextField } from '@mui/material'
+import { CircularProgress } from '@mui/material'
 import { Controller, useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
-import Checkbox from 'antd/es/checkbox/Checkbox'
 import { motion } from 'framer-motion'
 import { smoothComeUp } from "../../utils/framerAnimations"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import OTPInput from 'react-otp-input';
 
-var demoEmail = "demo@gmail.com"
-var demoPass = "password"
+
+
 
 
 
@@ -21,10 +21,11 @@ const NewPw = () => {
 
     const { handleSubmit, register, formState: { errors }, control } = useForm();
     const [isLoading, setIsLoading] = useState(false)
+    const [otp, setOtp] = useState('');
     const navigate = useNavigate()
 
 
-    const handleFp = (data) => {
+    const handleNp = (data) => {
         // Make API CALL
 
         setIsLoading(true)
@@ -37,6 +38,8 @@ const NewPw = () => {
             setIsLoading(false)
         }, 1200)
 
+        // console.log(data)
+
 
 
 
@@ -45,6 +48,11 @@ const NewPw = () => {
     const handleResendCode = () => {
         enqueueSnackbar("Code sent sucessfully", { variant: "success" })
     }
+
+    const handleChange = (otpValue) => {
+        setOtp(otpValue);
+    };
+
 
 
     return (
@@ -70,24 +78,20 @@ const NewPw = () => {
 
                 <div className="fpForm">
 
-                    <form onSubmit={handleSubmit(handleFp)} noValidate>
+                    <form onSubmit={handleSubmit(handleNp)} noValidate>
 
                         <div className="formFields">
 
-                            <TextField
-                                {...register("fpEmail", {
-                                    required: 'Enter the email.',
-                                    pattern: {
-                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                        message: " Invalid email address"
-                                    }
-                                })}
-                                type='email'
-                                id='fpEmail'
-                                label="Email address"
-                                variant='outlined'
-                                error={!!errors.loginEmail}
-                                helperText={errors.loginEmail?.message}
+                            <OTPInput
+                                className="otpInput"
+                                value={otp}
+                                placeholder='------'
+                                onChange={handleChange}
+                                numInputs={6} // Change this to 5 if you want 5 consecutive input boxes
+                                isInputNum={true}
+                                containerStyle={false}
+                                shouldAutoFocus={true}
+                                renderInput={(props) => <input  {...props} style={{ height: "50px", width: "50px", borderRadius: "8px", marginBottom: "24px", textAlign: "center", fontSize: "20px", color: "#212B36" }} />}
                             />
 
                         </div>
