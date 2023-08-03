@@ -7,6 +7,7 @@ import DoNut from '../../components/charts/donut/DoNut'
 import LineCh from '../../components/charts/line/LineCh'
 import Invoices from '../../components/invoices/Invoices'
 import RelatedApplications from '../../components/relatedApplications/RelatedApplications'
+import InstalledCountries from '../../components/installedCountries/InstalledCountries'
 // import DashLayout from '../../layouts/DashboardLayout'
 
 const DashboardApp = () => {
@@ -82,7 +83,9 @@ const DashboardApp = () => {
         <RelatedApplications />
       </div>
 
-      <div className="box box10 installedCount">box10</div>
+      <div className="box box10 installedCount">
+        <InstalledCountries />
+      </div>
 
       <div className="box box11 authors">box11</div>
 
