@@ -13,6 +13,7 @@ import PercentageCards from '../../components/percentageCards/PercentageCards'
 import { motion } from 'framer-motion'
 import RadialBars from '../../components/charts/radialBars/RadialBars'
 import SalesOverview from '../../components/sales/SalesOverview'
+import LatestProds from '../../components/latestProds/LatestProds'
 
 
 const appAnimate = {
@@ -128,7 +129,7 @@ const Ecommerce = () => {
       </div>
 
       <div className="box box9 currBalanceBox">
-        box balance
+        <LatestProds />
       </div>
 
       <div className="box box10 bestSalesman">
