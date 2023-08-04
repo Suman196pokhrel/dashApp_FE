@@ -194,7 +194,7 @@ const TopBar = () => {
 
                 <MenuItem onClick={handleLogout}>
                     <p style={{ color: "#FF5D39", fontSize: "16px", fontWeight: '600' }}>
-                        {isLoading ? <CircularProgress sx={{ color: 'inherit' }} /> : 'Logout'}
+                        {isLoading ? <CircularProgress sx={{ color: 'inherit' }} size={25} /> : 'Logout'}
                     </p>
                 </MenuItem>
 
