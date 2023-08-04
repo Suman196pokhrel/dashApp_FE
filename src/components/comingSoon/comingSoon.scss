@@ -1,0 +1,25 @@
+.comingSoon {
+  //   background-color: rgba(255, 0, 0, 0.119);
+  // height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10%;
+
+  width: 100%;
+
+  .header {
+    margin-bottom: 20px;
+    h1 {
+      color: #212b36;
+    }
+    p {
+      color: #637381;
+    }
+  }
+
+  img {
+    width: 350px;
+    object-fit: cover;
+  }
+}

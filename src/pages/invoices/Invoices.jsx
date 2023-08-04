@@ -1,8 +1,10 @@
 import React from 'react'
+import ComingSoon from "../../components/comingSoon/ComingSoon"
+
 
 const Invoices = () => {
   return (
-    <div>Invoices</div>
+    <ComingSoon />
   )
 }
 

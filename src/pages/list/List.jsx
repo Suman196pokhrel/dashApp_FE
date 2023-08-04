@@ -1,8 +1,9 @@
 import React from 'react'
+import ComingSoon from '../../components/comingSoon/ComingSoon'
 
 const List = () => {
   return (
-    <div>List</div>
+    <ComingSoon />
   )
 }
 
