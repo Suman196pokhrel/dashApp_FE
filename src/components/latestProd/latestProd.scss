@@ -1,0 +1,37 @@
+.latestProd {
+  //   background-color: rgba(255, 0, 0, 0.286);
+  padding: 15px 0px 15px 24px;
+  h2 {
+    color: #212b36;
+  }
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      img {
+        height: 50px;
+        width: 50px;
+        border-radius: 12px;
+      }
+
+      .textInfo {
+        p {
+          color: #212b36;
+
+          font-size: 14px;
+          font-weight: 600;
+        }
+        span {
+          color: #637381;
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

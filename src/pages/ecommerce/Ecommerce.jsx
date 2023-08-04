@@ -8,8 +8,9 @@ import Invoices from '../../components/invoices/Invoices'
 import { motion } from 'framer-motion'
 import RadialBars from '../../components/charts/radialBars/RadialBars'
 import SalesOverview from '../../components/sales/SalesOverview'
-import LatestProds from '../../components/latestProds/LatestProds'
 import { Link, useLocation } from 'react-router-dom'
+import CurrentBalance from '../../components/currBalance/CurrentBalance'
+import LatestProd from '../../components/latestProd/LatestProd'
 
 
 
@@ -31,27 +32,34 @@ const carousalItemsEcom = [
   {
     id: 1,
     title: "Arizona Soft Footwalk Sandal",
-    img: "/static/mockPhotos/products/product_1.jpg"
+    img: "/static/mockPhotos/products/product_1.jpg",
+    amount: 83.74
+
+
   },
   {
     id: 2,
     title: "Nike Air Zoom",
-    img: "/static/mockPhotos/products/product_2.jpg"
+    img: "/static/mockPhotos/products/product_2.jpg",
+    amount: 97.14
   },
   {
     id: 3,
     title: "Boston Soft Footbed Sandal",
-    img: "/static/mockPhotos/products/product_3.jpg"
+    img: "/static/mockPhotos/products/product_3.jpg",
+    amount: 68.7
   },
   {
     id: 4,
     title: "Nike AirForce 1",
-    img: "/static/mockPhotos/products/product_4.jpg"
+    img: "/static/mockPhotos/products/product_4.jpg",
+    amount: 52.74
   },
   {
     id: 5,
     title: "Nike Air Zoom Pegasus37",
-    img: "/static/mockPhotos/products/product_5.jpg"
+    img: "/static/mockPhotos/products/product_5.jpg",
+    amount: 96.21
   }
 ]
 
@@ -121,6 +129,7 @@ const rows = [
   },
 
 ]
+
 
 
 
@@ -194,7 +203,7 @@ const Ecommerce = () => {
       </div>
 
       <div className="box box9 currBalanceBox">
-        <LatestProds />
+        <CurrentBalance />
       </div>
 
       <div className="box box10 bestSalesman" style={{ height: pathname === 'ecommerce' ? '520px' : '' }}>
@@ -207,7 +216,7 @@ const Ecommerce = () => {
       </div>
 
       <div className="box box11 latProducts">
-        box
+        <LatestProd data={carousalItemsEcom} />
       </div>
 
 

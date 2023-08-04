@@ -19,7 +19,7 @@ const data = [
     }
 ]
 
-const LatestProds = () => {
+const CurrentBalance = () => {
     return (
         <div className='latProds'>
             <p>Current Balance</p>
@@ -42,4 +42,4 @@ const LatestProds = () => {
     )
 }
 
-export default LatestProds
+export default CurrentBalance
