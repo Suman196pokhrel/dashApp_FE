@@ -22,6 +22,8 @@ import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
 import ShareIcon from '@mui/icons-material/Share';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Link, useLocation } from 'react-router-dom'
+
 
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
@@ -54,6 +56,22 @@ function getStatusClass(status) {
             return 'progress';
         default:
             return '';
+    }
+}
+
+
+function getRankClass(status) {
+    switch (status) {
+        case 'Top 1':
+            return 'one';
+        case 'Top 2':
+            return 'two';
+        case 'Top 3':
+            return 'three';
+        case 'Top 4':
+            return 'four'
+        default:
+            return 'five';
     }
 }
 
@@ -109,6 +127,11 @@ const StyledMenu = styled((props) => (
 const Invoices = ({ title = "Top Invoices", tableHeaders = headers, tableRows = rows }) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
+    let { pathname } = useLocation()
+    pathname = pathname.substring(pathname.lastIndexOf('/') + 1)
+    // console.log(pathname)
+
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -122,6 +145,7 @@ const Invoices = ({ title = "Top Invoices", tableHeaders = headers, tableRows = 
         <div className='invoices'>
             <div className="invoiceHeader">{title}</div>
             <Divider />
+
             <div className="invoiceTable">
                 <TableContainer>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -129,69 +153,107 @@ const Invoices = ({ title = "Top Invoices", tableHeaders = headers, tableRows = 
                             <TableRow
 
                             >
-                                {headers.map((item) => (
+                                {tableHeaders.map((item) => (
                                     <TableCell className='tableHeaderCells' align='left' key={item}>{item}</TableCell>
                                 ))}
 
                             </TableRow>
                         </TableHead>
                         <TableBody sx={{ backgroundColor: "white" }}>
-                            {rows.map((row) => (
-                                <TableRow
-                                    key={row.name}
-                                    sx={{ border: 0, '&:last-child td, &:last-child th': { border: 0 } }}
-                                >
-                                    <TableCell className='tableRowCells' component="th" scope="row" align='left'>
-                                        {row.invoice}
-                                    </TableCell>
-                                    <TableCell className='tableRowCells' align='left'>{row.platform}</TableCell>
-                                    <TableCell className='tableRowCells' align='left'>{row.amount}</TableCell>
-                                    <TableCell className='tableRowCells' align='left'>
-                                        <div className={`statusData ${getStatusClass(row.status)}`} >
-                                            {row.status}
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className='tableRowCells' align='right'><IconButton onClick={handleClick}><MoreVertIcon /></IconButton></TableCell>
-                                </TableRow>
-                            ))}
+
+                            {pathname === 'app' ? (
+                                tableRows.map((row) => (
+                                    <TableRow
+                                        key={row.name}
+                                        sx={{ border: 0, '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                        <TableCell className='tableRowCells' component="th" scope="row" align='left'>
+                                            {row.invoice}
+                                        </TableCell>
+                                        <TableCell className='tableRowCells' align='left'>{row.platform}</TableCell>
+                                        <TableCell className='tableRowCells' align='left'>{row.amount}</TableCell>
+                                        <TableCell className='tableRowCells' align='left'>
+                                            <div className={`statusData ${getStatusClass(row.status)}`} >
+                                                {row.status}
+                                            </div>
+                                        </TableCell>
+                                        <TableCell className='tableRowCells' align='right'><IconButton onClick={handleClick}><MoreVertIcon /></IconButton></TableCell>
+                                    </TableRow>
+                                ))
+                            ) : (
+                                tableRows.map((row) => (
+                                    <TableRow
+                                        key={row.name}
+                                        sx={{ border: 0, '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                        <TableCell className='tableRowCells' component="th" scope="row" align='left'>
+                                            <div className="firstCol" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                                <img src={row.seller.img} alt={row.id} />
+                                                <p>{row.seller.name}</p>
+                                            </div>
+                                        </TableCell>
+                                        <TableCell className='tableRowCells' align='left'>{row.product}</TableCell>
+                                        <TableCell className='tableRowCells' align='left'><img src={row.countryImg} alt={row.id} /></TableCell>
+                                        <TableCell className='tableRowCells' align='right'>${row.total}</TableCell>
+                                        <TableCell className='tableRowCells' align='left'>
+                                            <div className={`statusData ${getRankClass(row.rank)}`} >
+                                                {row.rank}
+                                            </div>
+                                        </TableCell>
+                                    </TableRow>
+                                ))
+                            )}
+
+
+
                         </TableBody>
                     </Table>
                 </TableContainer>
             </div>
 
-            <Divider />
 
-            <div className="invoiceFooter">
-                <div className="viewBtn">
-                    <p>View All </p>
-                </div>
-            </div>
+            {pathname === 'app' ? (
+                <>
+                    <Divider />
+
+                    <div className="invoiceFooter">
+                        <div className="viewBtn">
+                            <p>View All </p>
+                        </div>
+                    </div>
 
 
-            <StyledMenu
+                    <StyledMenu
 
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-            >
-                <MenuItem onClick={handleClose} disableRipple>
-                    <CloudDownloadIcon />
-                    Download
-                </MenuItem>
-                <MenuItem onClick={handleClose} disableRipple>
-                    <LocalPrintshopIcon />
-                    Print
-                </MenuItem>
-                <MenuItem onClick={handleClose} disableRipple>
-                    <ShareIcon />
-                    Share
-                </MenuItem>
-                <Divider sx={{ my: 0.5 }} />
-                <MenuItem onClick={handleClose} disableRipple sx={{ color: "#FF5630" }}>
-                    <DeleteIcon color="error" />
-                    Delete
-                </MenuItem>
-            </StyledMenu>
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                    >
+                        <MenuItem onClick={handleClose} disableRipple>
+                            <CloudDownloadIcon />
+                            Download
+                        </MenuItem>
+                        <MenuItem onClick={handleClose} disableRipple>
+                            <LocalPrintshopIcon />
+                            Print
+                        </MenuItem>
+                        <MenuItem onClick={handleClose} disableRipple>
+                            <ShareIcon />
+                            Share
+                        </MenuItem>
+                        <Divider sx={{ my: 0.5 }} />
+                        <MenuItem onClick={handleClose} disableRipple sx={{ color: "#FF5630" }}>
+                            <DeleteIcon color="error" />
+                            Delete
+                        </MenuItem>
+                    </StyledMenu>
+
+
+                </>
+            ) : (
+                <>
+                </>
+            )}
 
 
         </div >

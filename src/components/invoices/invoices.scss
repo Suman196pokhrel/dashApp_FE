@@ -17,6 +17,12 @@
   }
 
   .invoiceTable {
+    img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+    }
+
     .tableHeaderCells {
       color: #637381;
       font-size: 14px;
@@ -40,15 +46,26 @@
         font-weight: 700;
         line-height: 20px;
       }
-      .paid {
+      .paid,
+      .one {
         color: #229a16;
         background-color: rgba(84, 214, 44, 0.16);
       }
-      .outOfDate {
+      .outOfDate,
+      .five {
         color: #b72136;
         background-color: rgba(255, 72, 66, 0.16);
       }
-      .progress {
+      .progress,
+      .four {
+        color: #9903b7;
+        background-color: rgba(230, 7, 255, 0.242);
+      }
+      .two {
+        color: #0c53b7;
+        background-color: rgba(24, 144, 255, 0.16);
+      }
+      .three {
         color: #b78103;
         background-color: rgba(255, 193, 7, 0.16);
       }

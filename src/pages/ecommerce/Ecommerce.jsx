@@ -3,17 +3,15 @@ import "./ecommerce.scss"
 import Banner from '../../components/banner/Banner'
 import CarousalComp from '../../components/carousal/CarousalComp'
 import StatCard from '../../components/statCard/StatCard'
-import DoNut from '../../components/charts/donut/DoNut'
 import LineCh from '../../components/charts/line/LineCh'
 import Invoices from '../../components/invoices/Invoices'
-import RelatedApplications from '../../components/relatedApplications/RelatedApplications'
-import InstalledCountries from '../../components/installedCountries/InstalledCountries'
-import TopAuthors from '../../components/topAuthors/TopAuthors'
-import PercentageCards from '../../components/percentageCards/PercentageCards'
 import { motion } from 'framer-motion'
 import RadialBars from '../../components/charts/radialBars/RadialBars'
 import SalesOverview from '../../components/sales/SalesOverview'
 import LatestProds from '../../components/latestProds/LatestProds'
+import { Link, useLocation } from 'react-router-dom'
+
+
 
 
 const appAnimate = {
@@ -57,11 +55,78 @@ const carousalItemsEcom = [
   }
 ]
 
+const headers = [
+  'Seller',
+  'Product',
+  'country',
+  'Total',
+  'Rank'
+]
 
+const rows = [
+  {
+    id: 1,
+    seller: {
+      img: "/static/mockPhotos/avatars/avatar_12.jpg",
+      name: "Jayvion Simon"
+    },
+    product: "CAP",
+    countryImg: "/static/icons/ic_flag_de.svg",
+    total: "83",
+    rank: 'Top 1'
+  },
+  {
+    id: 2,
+    seller: {
+      img: "/static/mockPhotos/avatars/avatar_13.jpg",
+      name: "Lucian Obrien"
+    },
+    product: "Branded Shoes",
+    countryImg: "/static/icons/ic_flag_en.svg",
+    total: "97.14",
+    rank: 'Top 2'
+  },
+  {
+    id: 1,
+    seller: {
+      img: "/static/mockPhotos/avatars/avatar_14.jpg",
+      name: "Deja Brady"
+    },
+    product: "Headphone",
+    countryImg: "/static/icons/ic_flag_fr.svg",
+    total: "68.71",
+    rank: 'Top 3'
+  },
+  {
+    id: 1,
+    seller: {
+      img: "/static/mockPhotos/avatars/avatar_15.jpg",
+      name: "Harrison Stein"
+    },
+    product: "Cell Phone",
+    countryImg: "/static/icons/ic_flag_kr.svg",
+    total: "85.21",
+    rank: 'Top 4'
+  },
+  {
+    id: 1,
+    seller: {
+      img: "/static/mockPhotos/avatars/avatar_16.jpg",
+      name: "Reece Chung"
+    },
+    product: "Earings",
+    countryImg: "/static/icons/ic_flag_us.svg",
+    total: "52.17",
+    rank: 'Top 5'
+  },
+
+]
 
 
 
 const Ecommerce = () => {
+  let { pathname } = useLocation()
+  pathname = pathname.substring(pathname.lastIndexOf('/') + 1)
 
   return (
 
@@ -132,8 +197,13 @@ const Ecommerce = () => {
         <LatestProds />
       </div>
 
-      <div className="box box10 bestSalesman">
-        box salesman
+      <div className="box box10 bestSalesman" style={{ height: pathname === 'ecommerce' ? '520px' : '' }}>
+        <Invoices
+          title="Best Salesman"
+          tableHeaders={headers}
+          tableRows={rows}
+
+        />
       </div>
 
       <div className="box box11 latProducts">
