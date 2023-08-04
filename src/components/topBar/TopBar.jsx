@@ -149,7 +149,7 @@ const TopBar = () => {
 
             <div className="topRight">
                 <IconButton>
-                    <img className='flag' src="/static/icons/navbar/nepal.png" alt="" />
+                    <img className='flag' src="/auth/login/static/icons/navbar/nepal.png" alt="" />
                 </IconButton>
                 <IconButton>
                     <Badge badgeContent={4} color="error">
@@ -165,7 +165,7 @@ const TopBar = () => {
                 <IconButton
                     onClick={handleClick}
                 >
-                    <Avatar src='/static/mockPhotos/suman.jpeg' sx={{ width: 48, height: 48, border: "3px solid #32e089" }} />
+                    <Avatar src='/auth/login/static/mockPhotos/suman.jpeg' sx={{ width: 48, height: 48, border: "3px solid #32e089" }} />
                 </IconButton>
             </div>
 

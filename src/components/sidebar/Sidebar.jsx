@@ -48,11 +48,11 @@ const Sidebar = () => {
             </div>
 
             <div className="logoContainer">
-                <img src="/favicon/android-chrome-192x192.png" alt="brang logo" />
+                <img src="/auth/login/favicon/android-chrome-192x192.png" alt="brang logo" />
             </div>
 
             <div className="adminTab">
-                <img src="\static\mockPhotos\suman.jpeg" alt="AdminPic" />
+                <img src="/auth/login/static/mockPhotos/suman.jpeg" alt="AdminPic" />
                 {isDrawerOpen ? (<div className="adminInfo">
                     <p>Suman Pokhrel</p>
                     <span>Admin</span>

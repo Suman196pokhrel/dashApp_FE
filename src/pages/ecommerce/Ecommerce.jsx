@@ -32,7 +32,7 @@ const carousalItemsEcom = [
   {
     id: 1,
     title: "Arizona Soft Footwalk Sandal",
-    img: "/static/mockPhotos/products/product_1.jpg",
+    img: "/auth/login/static/mockPhotos/products/product_1.jpg",
     amount: 83.74
 
 
@@ -40,25 +40,25 @@ const carousalItemsEcom = [
   {
     id: 2,
     title: "Nike Air Zoom",
-    img: "/static/mockPhotos/products/product_2.jpg",
+    img: "/auth/login/static/mockPhotos/products/product_2.jpg",
     amount: 97.14
   },
   {
     id: 3,
     title: "Boston Soft Footbed Sandal",
-    img: "/static/mockPhotos/products/product_3.jpg",
+    img: "/auth/login/static/mockPhotos/products/product_3.jpg",
     amount: 68.7
   },
   {
     id: 4,
     title: "Nike AirForce 1",
-    img: "/static/mockPhotos/products/product_4.jpg",
+    img: "/auth/login/static/mockPhotos/products/product_4.jpg",
     amount: 52.74
   },
   {
     id: 5,
     title: "Nike Air Zoom Pegasus37",
-    img: "/static/mockPhotos/products/product_5.jpg",
+    img: "/auth/login/static/mockPhotos/products/product_5.jpg",
     amount: 96.21
   }
 ]
@@ -75,55 +75,55 @@ const rows = [
   {
     id: 1,
     seller: {
-      img: "/static/mockPhotos/avatars/avatar_12.jpg",
+      img: "/auth/login/static/mockPhotos/avatars/avatar_12.jpg",
       name: "Jayvion Simon"
     },
     product: "CAP",
-    countryImg: "/static/icons/ic_flag_de.svg",
+    countryImg: "/auth/login/static/icons/ic_flag_de.svg",
     total: "83",
     rank: 'Top 1'
   },
   {
     id: 2,
     seller: {
-      img: "/static/mockPhotos/avatars/avatar_13.jpg",
+      img: "/auth/login/static/mockPhotos/avatars/avatar_13.jpg",
       name: "Lucian Obrien"
     },
     product: "Branded Shoes",
-    countryImg: "/static/icons/ic_flag_en.svg",
+    countryImg: "/auth/login/static/icons/ic_flag_en.svg",
     total: "97.14",
     rank: 'Top 2'
   },
   {
     id: 1,
     seller: {
-      img: "/static/mockPhotos/avatars/avatar_14.jpg",
+      img: "/auth/login/static/mockPhotos/avatars/avatar_14.jpg",
       name: "Deja Brady"
     },
     product: "Headphone",
-    countryImg: "/static/icons/ic_flag_fr.svg",
+    countryImg: "/auth/login/static/icons/ic_flag_fr.svg",
     total: "68.71",
     rank: 'Top 3'
   },
   {
     id: 1,
     seller: {
-      img: "/static/mockPhotos/avatars/avatar_15.jpg",
+      img: "/auth/login/static/mockPhotos/avatars/avatar_15.jpg",
       name: "Harrison Stein"
     },
     product: "Cell Phone",
-    countryImg: "/static/icons/ic_flag_kr.svg",
+    countryImg: "/auth/login/static/icons/ic_flag_kr.svg",
     total: "85.21",
     rank: 'Top 4'
   },
   {
     id: 1,
     seller: {
-      img: "/static/mockPhotos/avatars/avatar_16.jpg",
+      img: "/auth/login/static/mockPhotos/avatars/avatar_16.jpg",
       name: "Reece Chung"
     },
     product: "Earings",
-    countryImg: "/static/icons/ic_flag_us.svg",
+    countryImg: "/auth/login/static/icons/ic_flag_us.svg",
     total: "52.17",
     rank: 'Top 5'
   },
@@ -147,7 +147,7 @@ const Ecommerce = () => {
           title2={"Suman Pokhrel"}
           desc={"Best seller of the month You have done 57.6% more sales today."}
           buttonText={"Go now"}
-          img={"/static/illustrations/illustration_newPw.svg"}
+          img={"/auth/login/static/illustrations/illustration_newPw.svg"}
         />
       </div>
 

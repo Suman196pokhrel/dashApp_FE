@@ -11,19 +11,19 @@ import { Divider } from '@mui/material';
 const topAuthors = [
     {
         id: 1,
-        img: "/static/mockPhotos/avatars/avatar_1.jpg",
+        img: "/auth/login/static/mockPhotos/avatars/avatar_1.jpg",
         title: "Jayvion Simon",
         likes: "9.19",
     },
     {
         id: 2,
-        img: "/static/mockPhotos/avatars/avatar_2.jpg",
+        img: "/auth/login/static/mockPhotos/avatars/avatar_2.jpg",
         title: "Deja Brady",
         likes: "9.12"
     },
     {
         id: 3,
-        img: "/static/mockPhotos/avatars/avatar_3.jpg",
+        img: "/auth/login/static/mockPhotos/avatars/avatar_3.jpg",
         title: "Lucian Obrien",
         likes: "1.5"
     },

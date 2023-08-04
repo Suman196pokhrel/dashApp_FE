@@ -31,19 +31,19 @@ const carousalItemsApp = [
     id: 1,
     title: "Exploring the Hidden Gems of [Destination]",
     subText: "The old oak tree stood tall and majestic, its branches swaying gently in the breeze.",
-    img: "/static/mockPhotos/carousal/cover_1.jpg"
+    img: "/auth/login/static/mockPhotos/carousal/cover_1.jpg"
   },
   {
     id: 2,
     title: "10 Essential Tips for Healthy Living",
     subText: "The sun slowly set over the horizon, painting the sky in vibrant hues of orange and pink.",
-    img: "/static/mockPhotos/carousal/cover_2.jpg"
+    img: "/auth/login/static/mockPhotos/carousal/cover_2.jpg"
   },
   {
     id: 3,
     title: "The Ultimate Guide to Productivity Hacks",
     subText: "She eagerly opened the gift, her eyes sparkling with excitement.",
-    img: "/static/mockPhotos/carousal/cover_3.jpg"
+    img: "/auth/login/static/mockPhotos/carousal/cover_3.jpg"
   }
 ]
 
@@ -61,8 +61,8 @@ const DashboardApp = () => {
           title2={"Suman Pokhrel"}
           desc={"If you are going to use a passage of Lorem Ipsum, e going tyou need to be sure there isn't anything"}
           buttonText={"Go now"}
-          imgBg={"/static/illustrations/illustrations_banner.svg"}
-          img={"/static/illustrations/character_3.png"}
+          imgBg={"/auth/login/static/illustrations/illustrations_banner.svg"}
+          img={"/auth/login/static/illustrations/character_3.png"}
         />
       </div>
 
