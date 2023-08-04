@@ -7,7 +7,7 @@ import { Divider } from '@mui/material';
 
 const RadialBars = () => {
 
-    const series = [1342, 1576]
+    const series = [2142, 2976]
     const totalSum = series.reduce((acc, val) => acc + val, 0);
     const normalizedSeries = series.map((value) => (value / totalSum) * 100);
 
@@ -19,8 +19,48 @@ const RadialBars = () => {
                 show: false
             }
         },
+        fille: {
+            type: 'gradient',
+            gradient: {
+                colorStops: [
+                    [
+                        {
+                            offset: 0,
+                            color: "#FFE16A"
+                        },
+                        {
+                            offset: 100,
+                            color: "#B78103"
+                        }
+                    ],
+                    [
+                        {
+                            offset: 0,
+                            color: "#5BE584"
+                        },
+                        {
+                            offset: 100,
+                            color: "#007B55"
+                        }
+                    ]
+                ]
+            }
+        },
         plotOptions: {
             radialBar: {
+
+                hollow: {
+                    show: true,
+                    size: '75%',
+                    // background: '#f2f2f2'
+                    // strokeWidth: '47%',
+                },
+                track: {
+                    show: true,
+                    strokeWidth: '47%',
+                },
+
+
                 dataLabels: {
                     show: true,
                     name: {
@@ -42,24 +82,27 @@ const RadialBars = () => {
                         formatter: function (w) {
                             // Calculate the total sum of all data points
 
-                            return totalSum;
+                            return totalSum.toLocaleString('en-US');
                         },
 
                     }
-                }
-            }
+                },
+            },
         },
         labels: ['Mens', 'Womens'],
         stroke: {
-            curve: 'smooth',
-            width: 1,
             lineCap: 'round',
+            width: 1,
+            // dashArray: 2,
         },
         legend: {
             show: true,
             position: "bottom"
-        },
 
+        },
+        tooltip: {
+            enabled: false
+        },
         colors: ['#FFAD04', '#03A971'],
     };
 
@@ -73,7 +116,7 @@ const RadialBars = () => {
                 options={chartOptions}
                 series={normalizedSeries}
                 type="radialBar"
-                height={415}
+                height={405}
             />
         </div>
     )
