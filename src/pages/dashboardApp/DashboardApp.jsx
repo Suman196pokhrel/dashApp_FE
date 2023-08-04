@@ -74,7 +74,7 @@ const DashboardApp = () => {
 
       <div className="box box3 statCards">
         <StatCard
-          title={"Active Users"}
+          title={"Total Active Users"}
           growth={true}
           changePercentage={2.5}
           totalValue={"18,765"}
@@ -86,7 +86,7 @@ const DashboardApp = () => {
 
       <div className="box box4 statCards">
         <StatCard
-          title={"Installed"}
+          title={"Total Installed"}
           growth={true}
           changePercentage={5.5}
           totalValue={"4,876"}
@@ -98,7 +98,7 @@ const DashboardApp = () => {
 
       <div className="box box5 statCards">
         <StatCard
-          title={"Downloads"}
+          title={"Total Downloads"}
           growth={false}
           changePercentage={1.25}
           totalValue={"678"}

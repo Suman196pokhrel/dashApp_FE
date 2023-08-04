@@ -18,44 +18,37 @@ const MiniBar = ({ chartName = "Users", color = '#00AB55', data = [30, 60, 40, 1
                     enabled: true,
                 },
                 foreColor: '#00AB55',
-                // toolbar: {
-                //     show: false, // Hide the toolbar (includes the download and other buttons)
-                // },
+
             },
             fill: {
                 colors: [color],
             },
+            tooltip: {
+                custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+                    // Customize the tooltip content here
+                    return (
+                        `<div
+                            style={{
+                                height: "40px",
+                                width: "40px",
+                                fontSize: 20,
+                                padding:30
+                            }}
+                        >` + series[seriesIndex][dataPointIndex] + `</div>`
+
+                    );
+                },
+            },
 
             plotOptions: {
                 bar: {
-                    horizontal: false, // Set to 'true' for horizontal bars
+                    horizontal: false,
                     borderRadius: 2,
                     barHeight: 1,
 
 
                 },
             }
-            // },
-            // xaxis: {
-            //     categories: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
-            //     labels: {
-            //         show: false, // Hide X-axis labels
-            //     },
-            //     axisBorder: {
-            //         show: false, // Hide X-axis line
-            //     },
-            // },
-            // yaxis: {
-            //     labels: {
-            //         show: false, // Hide Y-axis labels
-            //     },
-            // },
-            // grid: {
-            //     show: false, // Hide grid lines
-            // },
-            // legend: {
-            //     show: false, // Hide legends
-            // },
         },
     };
 

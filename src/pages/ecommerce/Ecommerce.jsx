@@ -80,7 +80,7 @@ const Ecommerce = () => {
 
       <div className="box box3 statCards">
         <StatCard
-          title={"Active Users"}
+          title={"Product Sold"}
           growth={true}
           changePercentage={2.5}
           totalValue={"18,765"}
@@ -92,7 +92,7 @@ const Ecommerce = () => {
 
       <div className="box box4 statCards">
         <StatCard
-          title={"Installed"}
+          title={"Total Balance"}
           growth={true}
           changePercentage={5.5}
           totalValue={"4,876"}
@@ -104,7 +104,7 @@ const Ecommerce = () => {
 
       <div className="box box5 statCards">
         <StatCard
-          title={"Downloads"}
+          title={"Sales Profit"}
           growth={false}
           changePercentage={1.25}
           totalValue={"678"}
