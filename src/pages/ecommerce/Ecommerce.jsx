@@ -11,6 +11,7 @@ import InstalledCountries from '../../components/installedCountries/InstalledCou
 import TopAuthors from '../../components/topAuthors/TopAuthors'
 import PercentageCards from '../../components/percentageCards/PercentageCards'
 import { motion } from 'framer-motion'
+import RadialBars from '../../components/charts/radialBars/RadialBars'
 
 
 const appAnimate = {
@@ -85,8 +86,7 @@ const Ecommerce = () => {
           changePercentage={2.5}
           totalValue={"18,765"}
           chartName={"users"}
-        // chartColor={}
-        // chartData={}
+
         />
       </div>
 
@@ -115,11 +115,7 @@ const Ecommerce = () => {
       </div>
 
       <div className="box box6 pieBox">
-        <DoNut
-        // type=''
-        // labels={}
-        // colors={}
-        />
+        <RadialBars />
       </div>
 
       <div className="box box7 lineBox">

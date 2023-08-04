@@ -79,8 +79,6 @@ const DashboardApp = () => {
           changePercentage={2.5}
           totalValue={"18,765"}
           chartName={"users"}
-        // chartColor={}
-        // chartData={}
         />
       </div>
 

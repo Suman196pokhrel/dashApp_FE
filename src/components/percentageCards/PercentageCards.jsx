@@ -115,4 +115,6 @@ const PercentageCards = ({ data = [75], text = 38566, subText = "Conversions", b
     )
 }
 
-export default PercentageCards
+export default PercentageCards;
+
+
