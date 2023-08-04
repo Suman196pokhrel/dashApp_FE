@@ -115,7 +115,11 @@ const DashboardApp = () => {
       </div>
 
       <div className="box box7 lineBox">
-        <LineCh />
+        <LineCh
+          type="line"
+          title={"Total Installed"}
+          labels={["Nepal", "India"]}
+        />
       </div>
 
       <div className="box box8 invoiceBox">

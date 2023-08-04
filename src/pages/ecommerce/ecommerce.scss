@@ -40,23 +40,25 @@
     grid-row: span 3;
   }
 
-  .invoiceBox {
+  .sales {
     grid-column: span 2;
-    grid-row: span 3;
+    grid-row: span 2;
+    height: 240px;
   }
 
-  .relatedAppBox {
+  .currBalanceBox {
+    grid-row: span 2;
+    height: 300px;
+  }
+
+  .bestSalesman {
     grid-row: span 3;
+    grid-column: span 2;
+  }
+
+  .latProducts {
+    grid-row: span 2;
     height: 440px;
-  }
-
-  .installedCount {
-    grid-row: span 2;
-  }
-
-  .authors {
-    grid-row: span 2;
-    height: 290px;
   }
 
   .percentageCards {

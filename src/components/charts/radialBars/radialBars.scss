@@ -6,4 +6,20 @@
   flex-direction: column;
   // align-items: center;
   // justify-content: center;
+
+  div {
+    .apexcharts-canvas {
+      svg {
+        foreignObject {
+          // overflow: visible;
+          .apexcharts-legend {
+            border-top: 1px solid rgb(225, 225, 225);
+            // height: 20px !important;
+            width: 100%;
+            // background-color: red;
+          }
+        }
+      }
+    }
+  }
 }

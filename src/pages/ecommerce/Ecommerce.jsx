@@ -12,6 +12,7 @@ import TopAuthors from '../../components/topAuthors/TopAuthors'
 import PercentageCards from '../../components/percentageCards/PercentageCards'
 import { motion } from 'framer-motion'
 import RadialBars from '../../components/charts/radialBars/RadialBars'
+import SalesOverview from '../../components/sales/SalesOverview'
 
 
 const appAnimate = {
@@ -119,40 +120,25 @@ const Ecommerce = () => {
       </div>
 
       <div className="box box7 lineBox">
-        <LineCh />
+        <LineCh type="area" title={"Yearly Sales"} labels={["Total Income", "Total Expenses"]} />
       </div>
 
-      <div className="box box8 invoiceBox">
-        <Invoices />
+      <div className="box box8 sales">
+        <SalesOverview />
       </div>
 
-      <div className="box box9 relatedAppBox">
-        <RelatedApplications />
+      <div className="box box9 currBalanceBox">
+        box balance
       </div>
 
-      <div className="box box10 installedCount">
-        <InstalledCountries />
+      <div className="box box10 bestSalesman">
+        box salesman
       </div>
 
-      <div className="box box11 authors">
-        <TopAuthors />
+      <div className="box box11 latProducts">
+        box
       </div>
 
-      <div className="box box12 conversions percentageCards">
-        <PercentageCards />
-      </div>
-
-      <div className="box box13 applications percentageCards">
-        <PercentageCards
-          data={[48]}
-          text={55566}
-          subText='Applications'
-          icon='mail'
-          bgColor='#006C9C'
-          barColor='#1BC8E0'
-          trackColor='#17749E'
-        />
-      </div>
 
     </motion.div>
 

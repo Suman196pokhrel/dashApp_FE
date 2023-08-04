@@ -3,17 +3,17 @@ import "./linech.scss";
 import ReactApexChart from 'react-apexcharts';
 import { Divider } from '@mui/material';
 
-const LineCh = () => {
+const LineCh = ({ type, title, labels }) => {
 
     const chartData = {
         series: [
             {
-                name: 'Nepal',
+                name: labels[0],
                 data: [30, 40, 35, 50, 49, 60, 70, 91, 125, 90,],
                 color: '#FFB820',
             },
             {
-                name: 'India',
+                name: labels[1],
                 data: [12, 43, 28, 56, 78, 64, 43, 32, 76, 85],
                 color: '#15B47A',
             },
@@ -30,7 +30,7 @@ const LineCh = () => {
             },
             yaxis: {
                 title: {
-                    text: 'Value',
+
                 },
             },
             legend: {
@@ -85,9 +85,9 @@ const LineCh = () => {
 
     return (
         <div className='lineCh' >
-            <h2>Total Installed</h2>
+            <h2>{title}</h2>
             <Divider sx={{ marginBottom: 2 }} />
-            <ReactApexChart options={chartData.options} series={chartData.series} type="line" height={400} />
+            <ReactApexChart options={chartData.options} series={chartData.series} type={type} height={400} />
 
         </div >
 
