@@ -44,7 +44,7 @@
     form {
       display: flex;
       flex-direction: column;
-      // height: 100%;
+      // height: 110%;
       // background-color: yellow;
 
       .formFields {
@@ -65,6 +65,21 @@
           align-items: center;
           justify-content: space-between;
         }
+      }
+
+      .disabled {
+        color: rgb(141, 141, 141);
+      }
+
+      .loaderResend {
+        // background-color: red;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        // gap: 0px;
       }
 
       button {

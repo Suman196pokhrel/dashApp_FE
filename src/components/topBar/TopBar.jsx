@@ -131,11 +131,8 @@ const TopBar = () => {
 
     const handleLogout = () => {
         setIsLoading(true)
-        setTimeout(() => {
-            enqueueSnackbar("Logged out", { variant: "success" })
-            navigate("/auth/login")
-            setIsLoading(false)
-        }, 1300)
+        sessionStorage.setItem('isAuthenticated', false)
+        navigate("/auth/login")
     }
 
 

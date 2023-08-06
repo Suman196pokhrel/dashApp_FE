@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AuthLayout from "../../layouts/AuthLayout"
 import "./newPw.scss"
-import { CircularProgress, TextField } from '@mui/material'
+import { Box, CircularProgress, TextField } from '@mui/material'
 import { Controller, useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
@@ -10,6 +10,8 @@ import { smoothComeUp } from "../../utils/framerAnimations"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import OTPInput from 'react-otp-input';
 import { DevTool } from '@hookform/devtools'
+import axios from 'axios'
+import { Progress } from 'antd'
 
 
 
@@ -26,40 +28,75 @@ const NewPw = () => {
     const navigate = useNavigate()
 
 
-    const handleNp = (data) => {
+    const [isResending, setIsResending] = useState(false)
+    const [remainingTime, setRemainingTime] = useState(0)
+
+
+    const handleNp = async (data) => {
         // Make API CALL
-
-        if (data.otp === '123456') {
-            setIsLoading(true)
-
-            setTimeout(() => {
-                // Navigate to DashAPP
-
-                enqueueSnackbar("Password reset successful", { variant: 'success' })
-                navigate("/auth/login")
-                setIsLoading(false)
-            }, 1200)
-        } else {
+        try {
 
             setIsLoading(true)
-            setTimeout(() => {
-                enqueueSnackbar("Failed to changed password, try again", { variant: "error" })
-                setIsLoading(false)
-            }, 1200)
+
+            // const formDataEncoded = new URLSearchParams(formData).toString();
+            const response = await axios.post('http://localhost:8000/auth/validateNewPw', { "value": data.otp, "password": data.confirmPassword, "email": sessionStorage.getItem('forgotPwEmail') })
+            console.log('Response => ', response.data)
+            navigate("/auth/login")
+            setIsLoading(false)
+            enqueueSnackbar("Password Changed Sucessfully", { variant: "success" })
+
+        }
+        catch (error) {
+            console.log('Error Changing password , ', error.response.data.detail)
+            enqueueSnackbar(`${error.response.data.detail}`, { variant: "error" })
+            setIsLoading(false)
+
         }
 
         // console.log(control)
 
     }
 
-    const handleResendCode = () => {
-        enqueueSnackbar("Code sent sucessfully", { variant: "success" })
+    const handleResendCode = async () => {
+
+        if (!isResending) {
+            setIsResending(true)
+            setRemainingTime(30)
+
+            const timer = setInterval(() => {
+                setRemainingTime((prev) => prev - 1)
+            }, 1000)
+
+
+            setTimeout(() => {
+                clearInterval(timer)
+                setIsResending(false)
+            }, 30000)
+
+
+
+            // // API CALL 
+            try {
+                const response = await axios.post('http://localhost:8000/auth/forgotPw', { "email": sessionStorage.getItem("forgotPwEmail") })
+                enqueueSnackbar("OTP sent In email", { variant: "success" })
+
+            }
+            catch (error) {
+                enqueueSnackbar("Failed To Send OTP", { variant: "error" })
+
+            }
+
+
+
+
+        }
+
+
+
+
     }
 
-    // const handleChange = (otpValue) => {
-    //     setOtp(otpValue);
-    // };
-
+    // JUST TO ENSURE THAT THE TIMER IS SYNC 
 
 
     return (
@@ -147,12 +184,36 @@ const NewPw = () => {
 
                         <div className="formUtils">
 
-                            <div style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "center", gap: "5px", marginTop: "25px" }}>Don't have a code?<p onClick={handleResendCode} style={{ cursor: "pointer" }}>Resend code</p></div>
+                            {isResending ? (
+
+                                <div style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "center", gap: "5px", marginTop: "25px" }}>
+                                    <div className="loaderResend">
+                                        <p className='disabled'>{`Resend available after ${remainingTime} seconds`}</p>
+                                        <Progress percent={((30 - remainingTime) / 30) * 100} status='active' showInfo={false} strokeColor={{ from: "#01A870", to: "#5BE49B" }} />
+
+                                    </div>
+
+
+                                </div>
+                            ) : (
+
+                                <div style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "center", gap: "5px", marginTop: "25px" }}>
+                                    Don't have a code?
+                                    <p onClick={handleResendCode} style={{ cursor: "pointer" }}>
+                                        Resend code
+                                    </p>
+                                </div>
+                            )}
+
+
+
                         </div>
                     </form>
                 </div>
 
             </motion.div>
+            {/* <DevTool control={control} /> */}
+
         </AuthLayout>
 
     )

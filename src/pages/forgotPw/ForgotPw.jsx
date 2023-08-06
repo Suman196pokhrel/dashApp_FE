@@ -9,6 +9,7 @@ import Checkbox from 'antd/es/checkbox/Checkbox'
 import { motion } from 'framer-motion'
 import { smoothComeUp } from "../../utils/framerAnimations"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import axios from 'axios'
 
 var demoEmail = "demo@gmail.com"
 var demoPass = "password"
@@ -24,18 +25,30 @@ const ForgotPw = () => {
     const navigate = useNavigate()
 
 
-    const handleFp = (data) => {
+    const handleFp = async (data) => {
         // Make API CALL
+        console.log(data)
 
-        setIsLoading(true)
+        try {
 
-        setTimeout(() => {
-            // Navigate to DashAPP
+            setIsLoading(true)
 
-            // enqueueSnackbar("Email sent sucessfully", { variant: 'success' })
+            // const formDataEncoded = new URLSearchParams(formData).toString();
+            const response = await axios.post('http://localhost:8000/auth/forgotPw', { "email": data.fpEmail })
+            console.log('Response => ', response.data)
+            sessionStorage.setItem('forgotPwEmail', data.fpEmail)
             navigate("/auth/newPw")
             setIsLoading(false)
-        }, 1200)
+            enqueueSnackbar("OTP sent in email", { variant: "success" })
+
+        }
+        catch (error) {
+            console.log('Error Login , ', error)
+            enqueueSnackbar("Failed To Send OTP", { variant: "error" })
+            setIsLoading(false)
+
+        }
+
 
 
 

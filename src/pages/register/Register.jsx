@@ -8,6 +8,9 @@ import { enqueueSnackbar } from 'notistack'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { smoothComeUp } from '../../utils/framerAnimations'
+import axios from 'axios'
+import moment from 'moment/moment'
+
 
 
 
@@ -20,19 +23,33 @@ const Register = () => {
   const maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() - 5);
 
-  const onSubmit = (data) => {
-    // Make API CALL
+  const onSubmit = async ({ fName, lName, email, dob, password, mobileNum }) => {
+    const formData = {
+      fName,
+      lName,
+      email,
+      password,
+      mobileNum,
+      dob: moment(dob).format('YYYY-MM-DD')
+    }
+    try {
 
-    // Change Auth State
+      setIsLoading(true)
 
-    // Navigate to DashAPP
-    setIsLoading(true)
-    setTimeout(() => {
-      enqueueSnackbar("Successfully registered", { variant: 'success' })
+      // const formDataEncoded = new URLSearchParams(formData).toString();
+      const response = await axios.post('http://localhost:8000/auth/newUser', formData)
+      console.log('Response => ', response.data)
       navigate("/auth/login")
       setIsLoading(false)
+      enqueueSnackbar("Sucessfully Registered", { variant: "success" })
 
-    }, 1300)
+    }
+    catch (error) {
+      console.log('Error Login , ', error)
+      enqueueSnackbar("Registration failed", { variant: "error" })
+      setIsLoading(false)
+
+    }
 
 
   }
@@ -106,7 +123,7 @@ const Register = () => {
 
               <div className="dobPhone">
                 <Controller
-                  name="dateOfBirth"
+                  name="dob"
                   control={control}
                   defaultValue={null}
                   rules={{ required: 'date of birth required' }}
@@ -120,11 +137,11 @@ const Register = () => {
                         disabledDate={(current) => current && current > maxDate} // Set the max date limit
 
 
-                        status={errors.dateOfBirth?.message ? "error" : ""}
+                        status={errors.dob?.message ? "error" : ""}
                       />
 
-                      {errors.dateOfBirth && (
-                        <p className='errorText'>{errors.dateOfBirth.message}</p>
+                      {errors.dob && (
+                        <p className='errorText'>{errors.dob.message}</p>
                       )}
                     </>
                   )}
@@ -133,7 +150,7 @@ const Register = () => {
 
 
                 <TextField
-                  {...register("tel", {
+                  {...register("mobileNum", {
                     required: "contact cannot be empty",
                     pattern: {
                       value: /^[+]?[0-9]{8,15}$/,
@@ -146,13 +163,13 @@ const Register = () => {
                   variant='outlined'
                   autoComplete='off'
                   inputMode='tel' // Set the inputMode to 'tel' to hint mobile devices that it's a phone number input
-                  error={!!errors.tel}
-                  helperText={errors.tel?.message}
+                  error={!!errors.mobileNum}
+                  helperText={errors.mobileNum?.message}
                 />
               </div>
 
               <TextField
-                {...register("regEmail", {
+                {...register("email", {
                   required: 'enter your email.',
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -160,16 +177,16 @@ const Register = () => {
                   }
                 })}
                 type='email'
-                id='regEmail'
+                id='email'
                 label="Email address"
                 variant='outlined'
-                error={!!errors.regEmail}
-                helperText={errors.regEmail?.message}
+                error={!!errors.email}
+                helperText={errors.email?.message}
               />
 
 
               <TextField
-                {...register("regPassword", {
+                {...register("password", {
                   required: "Enter the password",
                   minLength: {
                     value: 6,
@@ -177,11 +194,11 @@ const Register = () => {
                   }
                 })}
                 type="password"
-                id="regPassword"
+                id="password"
                 label="Password"
                 variant="outlined"
-                error={!!errors.regPassword}
-                helperText={errors.regPassword?.message}
+                error={!!errors.password}
+                helperText={errors.password?.message}
               />
             </div>
 

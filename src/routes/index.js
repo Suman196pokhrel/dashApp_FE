@@ -14,6 +14,7 @@ import Login from "../pages/login/Login"
 import Register from "../pages/register/Register"
 import ForgotPw from "../pages/forgotPw/ForgotPw"
 import NewPw from "../pages/newPw/NewPw"
+import AuthGuard from "../utils/AuthGuard"
 
 
 const router = createBrowserRouter([
@@ -41,7 +42,9 @@ const router = createBrowserRouter([
 
   {
     path: "dashboard",
-    element: <DashLayout />,
+    element: <AuthGuard>
+      <DashLayout />
+    </AuthGuard>,
     children: [
       {
         path: "app",

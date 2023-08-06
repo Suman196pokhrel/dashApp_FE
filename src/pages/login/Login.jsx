@@ -8,6 +8,7 @@ import { enqueueSnackbar } from 'notistack'
 import Checkbox from 'antd/es/checkbox/Checkbox'
 import { motion } from 'framer-motion'
 import { smoothComeUp } from "../../utils/framerAnimations"
+import axios from 'axios'
 
 
 var demoEmail = "demo@gmail.com"
@@ -24,26 +25,34 @@ const Login = () => {
   const navigate = useNavigate()
 
 
-  const handleLogin = (data) => {
-    // Make API CALL
-    if (data.loginEmail === demoEmail && data.loginPassword === demoPass) {
+  const handleLogin = async (data) => {
+    const formData = { username: data.loginEmail, password: data.loginPassword }
 
+    try {
 
       setIsLoading(true)
+      const config = {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      };
 
-      setTimeout(() => {
-        // Navigate to DashAPP
+      const formDataEncoded = new URLSearchParams(formData).toString();
+      const response = await axios.post('http://localhost:8000/auth/login', formDataEncoded, config)
+      // console.log('Response => ', response.data)
+      sessionStorage.setItem('isAuthenticated', true)
+      navigate("/dashboard/app")
+      setIsLoading(false)
+      enqueueSnackbar("Sucessfully logged in", { variant: "success" })
 
-        enqueueSnackbar("Successfully Logged in", { variant: 'success' })
-        navigate("/dashboard/app")
-        setIsLoading(false)
-      }, 1300)
-
-
-
-    } else {
-      enqueueSnackbar("Sorry, You email or password was wrong", { variant: 'error' })
     }
+    catch (error) {
+      console.log('Error Login , ', error)
+      enqueueSnackbar("Login failed", { variant: "error" })
+      setIsLoading(false)
+
+    }
+
   }
 
 
