@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import AuthLayout from "../../layouts/AuthLayout"
 import "./newPw.scss"
-import { Box, CircularProgress, TextField } from '@mui/material'
+import { CircularProgress, TextField } from '@mui/material'
 import { Controller, useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
@@ -9,7 +9,6 @@ import { motion } from 'framer-motion'
 import { smoothComeUp } from "../../utils/framerAnimations"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import OTPInput from 'react-otp-input';
-import { DevTool } from '@hookform/devtools'
 import axios from 'axios'
 import { Progress } from 'antd'
 
@@ -19,6 +18,7 @@ import { Progress } from 'antd'
 
 
 const NewPw = () => {
+    var forgotPwData = JSON.parse(sessionStorage.getItem('forgotPwData'))
 
 
 
@@ -39,7 +39,7 @@ const NewPw = () => {
             setIsLoading(true)
 
             // const formDataEncoded = new URLSearchParams(formData).toString();
-            const response = await axios.post('http://localhost:8000/auth/validateNewPw', { "value": data.otp, "password": data.confirmPassword, "email": sessionStorage.getItem('forgotPwEmail') })
+            const response = await axios.post('http://localhost:8000/auth/validateNewPw', { "value": data.otp, "password": data.confirmPassword, "mode": forgotPwData.mode, "identifier": forgotPwData.mode === "email" ? forgotPwData.email : forgotPwData.mobileNum })
             console.log('Response => ', response.data)
             navigate("/auth/login")
             setIsLoading(false)
@@ -74,10 +74,11 @@ const NewPw = () => {
             }, 30000)
 
 
-
-            // // API CALL 
+            const newPwData = { "mode": forgotPwData.mode, "email": forgotPwData.email, "mobileNum": forgotPwData.mobileNum }
+            // // // API CALL 
             try {
-                const response = await axios.post('http://localhost:8000/auth/forgotPw', { "email": sessionStorage.getItem("forgotPwEmail") })
+                const response = await axios.post('http://localhost:8000/auth/forgotPw', newPwData)
+                console.log(response)
                 enqueueSnackbar("OTP sent In email", { variant: "success" })
 
             }

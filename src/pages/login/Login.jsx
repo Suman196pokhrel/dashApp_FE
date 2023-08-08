@@ -11,9 +11,6 @@ import { smoothComeUp } from "../../utils/framerAnimations"
 import axios from 'axios'
 
 
-var demoEmail = "demo@gmail.com"
-var demoPass = "password"
-
 
 
 const Login = () => {
@@ -39,7 +36,7 @@ const Login = () => {
 
       const formDataEncoded = new URLSearchParams(formData).toString();
       const response = await axios.post('http://localhost:8000/auth/login', formDataEncoded, config)
-      // console.log('Response => ', response.data)
+      console.log(response)
       sessionStorage.setItem('isAuthenticated', true)
       navigate("/dashboard/app")
       setIsLoading(false)

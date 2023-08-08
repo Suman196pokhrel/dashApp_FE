@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./topbar.scss"
-import { CircularProgress, IconButton, TextField } from '@mui/material'
+import { CircularProgress, IconButton } from '@mui/material'
 import { SearchOutlined } from '@mui/icons-material'
 import Badge from '@mui/material/Badge'
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -11,8 +11,7 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import { styled, alpha } from "@mui/material/styles"
 import Divider from '@mui/material/Divider';
-import { Link, useNavigate } from 'react-router-dom'
-import { enqueueSnackbar } from 'notistack'
+import { useNavigate } from 'react-router-dom'
 import { Modal } from 'antd'
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
@@ -122,9 +121,9 @@ const TopBar = () => {
     const showModal = () => {
         setIsSearchModalOpen(true);
     };
-    const handleOk = () => {
-        setIsSearchModalOpen(false);
-    };
+    // const handleOk = () => {
+    //     setIsSearchModalOpen(false);
+    // };
     const handleCancel = () => {
         setIsSearchModalOpen(false);
     };

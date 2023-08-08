@@ -20,7 +20,7 @@ const AuthLayout = ({ children }) => {
       case 'newPw':
         return 'Fast & Easy , Generate New Passwords';
       case 'forgotPw':
-        return 'No Worries, All You Need Is Your Email';
+        return 'No worries, all you need is your email or phone number';
       default:
         return '404 Not Found - The page you are looking for does not exist.';
     }
