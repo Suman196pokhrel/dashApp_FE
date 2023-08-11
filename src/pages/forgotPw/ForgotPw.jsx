@@ -2,17 +2,15 @@ import React, { useState } from 'react'
 import AuthLayout from "../../layouts/AuthLayout"
 import "./forgotPw.scss"
 import { CircularProgress, TextField } from '@mui/material'
-import { Controller, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
-import Checkbox from 'antd/es/checkbox/Checkbox'
 import { motion } from 'framer-motion'
 import { smoothComeUp, smoothFromRight } from "../../utils/framerAnimations"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import axios from 'axios'
 
-var demoEmail = "demo@gmail.com"
-var demoPass = "password"
+
 
 
 
@@ -20,7 +18,7 @@ const ForgotPw = () => {
 
 
 
-    const { handleSubmit, register, formState: { errors }, control, reset } = useForm();
+    const { handleSubmit, register, formState: { errors }, reset } = useForm();
     const [otpMode, setotpMode] = useState("email")
     const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
@@ -68,106 +66,106 @@ const ForgotPw = () => {
 
 
     return (
-        <AuthLayout>
 
 
-            <motion.div
 
-                className='forgotPw'
-                {...smoothComeUp}
-            >
-                <div className="formUtils">
+        <motion.div
 
-                    <Link to={"/auth/login"}><p><ChevronLeftIcon />Back</p></Link>
-                </div>
+            className='forgotPw'
+            {...smoothComeUp}
+        >
+            <div className="formUtils">
 
-
-                <div className="fpHeader">
-                    <h1>Forgot your password ?</h1>
-                    <p>Please enter the {otpMode === "email" ? "email address" : "mobile number"} associated with your account, and we'll send you an OTP.</p>
-                </div>
+                <Link to={"/auth/login"}><p><ChevronLeftIcon />Back</p></Link>
+            </div>
 
 
-                <div className="fpForm">
+            <div className="fpHeader">
+                <h1>Forgot your password ?</h1>
+                <p>Please enter the {otpMode === "email" ? "email address" : "mobile number"} associated with your account, and we'll send you an OTP.</p>
+            </div>
 
-                    <form onSubmit={handleSubmit(handleFp)} noValidate>
 
-                        {otpMode === "email" ? (
+            <div className="fpForm">
 
-                            <div className="formFields">
+                <form onSubmit={handleSubmit(handleFp)} noValidate>
 
-                                <motion.div {...smoothFromRight} >
-                                    <TextField
-                                        {...register("fpEmail", {
-                                            required: 'Enter the email.',
-                                            pattern: {
-                                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                                message: " Invalid email address"
-                                            }
-                                        })}
-                                        type='email'
-                                        id='fpEmail'
-                                        sx={{ width: "100%" }}
-                                        label="Email address"
-                                        variant='outlined'
-                                        error={!!errors.fpEmail}
-                                        helperText={errors.fpEmail?.message}
-                                    />
-                                </motion.div>
+                    {otpMode === "email" ? (
 
-                            </div>
-                        ) : (
-                            <>
-                                <motion.div {...smoothFromRight} style={{ display: "flex", gap: "2px" }}>
-                                    <TextField
-                                        {...register("countryCode", {
-                                            required: 'Enter the country code',
-                                            pattern: {
-                                                value: /^\+?[0-9]+$/,
-                                                message: "Invalid country code"
-                                            }
-                                        })}
-                                        sx={{ width: "40%" }}
-                                        type='tel'
-                                        id='countryCode'
-                                        label="Country Code"
-                                        variant='outlined'
-                                        autoComplete='off'
-                                        error={!!errors.countryCode}
-                                        helperText={errors.countryCode?.message}
-                                    />
-                                    <TextField
-                                        {...register("mobileNum", {
-                                            required: 'Enter the mobile number.',
-                                            pattern: {
-                                                value: /^\+?[0-9]{10,}$/,
-                                                message: "Invalid mobile number"
-                                            }
-                                        })}
-                                        sx={{ width: "100%" }}
-                                        type='tel'
-                                        id='mobileNum'
-                                        label="Phone Number"
-                                        variant='outlined'
-                                        error={!!errors.mobileNum}
-                                        helperText={errors.mobileNum?.message}
-                                    />
-                                </motion.div>
-                            </>
-                        )}
+                        <div className="formFields">
 
-                        <button type='submit'>{isLoading ? <CircularProgress color='inherit' size={25} /> : 'Reset Password'}</button>
-                        <div className="formUtils" style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "center", gap: "5px", marginTop: "25px" }}>
-                            <span>Having Problems ? </span><p style={{ cursor: "pointer" }} onClick={handleOtpMode}>{otpMode === "email" ? "Use Phone Number Instead" : "Use Email Instead"}</p>
+                            <motion.div {...smoothFromRight} >
+                                <TextField
+                                    {...register("fpEmail", {
+                                        required: 'Enter the email.',
+                                        pattern: {
+                                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                            message: " Invalid email address"
+                                        }
+                                    })}
+                                    type='email'
+                                    id='fpEmail'
+                                    sx={{ width: "100%" }}
+                                    label="Email address"
+                                    variant='outlined'
+                                    error={!!errors.fpEmail}
+                                    helperText={errors.fpEmail?.message}
+                                />
+                            </motion.div>
+
                         </div>
+                    ) : (
+                        <>
+                            <motion.div {...smoothFromRight} style={{ display: "flex", gap: "2px" }}>
+                                <TextField
+                                    {...register("countryCode", {
+                                        required: 'Enter the country code',
+                                        pattern: {
+                                            value: /^\+?[0-9]+$/,
+                                            message: "Invalid country code"
+                                        }
+                                    })}
+                                    sx={{ width: "40%" }}
+                                    type='tel'
+                                    id='countryCode'
+                                    label="Country Code"
+                                    variant='outlined'
+                                    autoComplete='off'
+                                    error={!!errors.countryCode}
+                                    helperText={errors.countryCode?.message}
+                                />
+                                <TextField
+                                    {...register("mobileNum", {
+                                        required: 'Enter the mobile number.',
+                                        pattern: {
+                                            value: /^\+?[0-9]{10,}$/,
+                                            message: "Invalid mobile number"
+                                        }
+                                    })}
+                                    sx={{ width: "100%" }}
+                                    type='tel'
+                                    id='mobileNum'
+                                    label="Phone Number"
+                                    variant='outlined'
+                                    error={!!errors.mobileNum}
+                                    helperText={errors.mobileNum?.message}
+                                />
+                            </motion.div>
+                        </>
+                    )}
 
-                    </form>
+                    <button type='submit'>{isLoading ? <CircularProgress color='inherit' size={25} /> : 'Reset Password'}</button>
+                    <div className="formUtils" style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "center", gap: "5px", marginTop: "25px" }}>
+                        <span>Having Problems ? </span><p style={{ cursor: "pointer" }} onClick={handleOtpMode}>{otpMode === "email" ? "Use Phone Number Instead" : "Use Email Instead"}</p>
+                    </div>
 
-                    {/* <DevTool control={control} /> */}
-                </div>
+                </form>
 
-            </motion.div>
-        </AuthLayout>
+                {/* <DevTool control={control} /> */}
+            </div>
+
+        </motion.div>
+
 
     )
 }

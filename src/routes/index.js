@@ -15,11 +15,20 @@ import Register from "../pages/register/Register"
 import ForgotPw from "../pages/forgotPw/ForgotPw"
 import NewPw from "../pages/newPw/NewPw"
 import AuthGuard from "../utils/AuthGuard"
+import AuthLayout from "../layouts/AuthLayout"
 
 
 const router = createBrowserRouter([
+
+  // AUTH PAGES 
+
   {
     path: "auth",
+    element: <AuthGuard>
+      <AuthLayout />
+    </AuthGuard>
+
+    ,
     children: [
       {
         path: "login",
@@ -40,6 +49,8 @@ const router = createBrowserRouter([
     ]
   },
 
+
+  // DASHBOARD APP 
   {
     path: "dashboard",
     element: <AuthGuard>

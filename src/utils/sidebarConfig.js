@@ -3,7 +3,7 @@ import SvgIconStyle from "../components/SvgIconStyle";
 
 
 const getIcon = (name) => (
-    <SvgIconStyle src={`/auth/login/static/icons/navbar/${name}.svg`} sx={{ width: '25px', height: '25px' }} />
+    <SvgIconStyle src={`/static/icons/navbar/${name}.svg`} sx={{ width: '25px', height: '25px' }} />
 );
 
 const ICONS = {
