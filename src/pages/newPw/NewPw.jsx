@@ -39,7 +39,7 @@ const NewPw = () => {
             setIsLoading(true)
 
             // const formDataEncoded = new URLSearchParams(formData).toString();
-            const response = await axios.post(`http://64.227.166.179: 8000 / auth / validateNewPw`, { "value": data.otp, "password": data.confirmPassword, "mode": forgotPwData.mode, "identifier": forgotPwData.mode === "email" ? forgotPwData.email : forgotPwData.mobileNum })
+            const response = await axios.post(`http://64.227.166.179:8000/auth/validateNewPw`, { "value": data.otp, "password": data.confirmPassword, "mode": forgotPwData.mode, "identifier": forgotPwData.mode === "email" ? forgotPwData.email : forgotPwData.mobileNum })
             console.log('Response => ', response.data)
             navigate("/auth/login")
             setIsLoading(false)
