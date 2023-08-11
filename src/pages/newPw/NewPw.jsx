@@ -39,7 +39,7 @@ const NewPw = () => {
             setIsLoading(true)
 
             // const formDataEncoded = new URLSearchParams(formData).toString();
-            const response = await axios.post('http://localhost:8000/auth/validateNewPw', { "value": data.otp, "password": data.confirmPassword, "mode": forgotPwData.mode, "identifier": forgotPwData.mode === "email" ? forgotPwData.email : forgotPwData.mobileNum })
+            const response = await axios.post(`http://${process.env.DOCKER_IP}:8000/auth/validateNewPw`, { "value": data.otp, "password": data.confirmPassword, "mode": forgotPwData.mode, "identifier": forgotPwData.mode === "email" ? forgotPwData.email : forgotPwData.mobileNum })
             console.log('Response => ', response.data)
             navigate("/auth/login")
             setIsLoading(false)
@@ -77,7 +77,7 @@ const NewPw = () => {
             const newPwData = { "mode": forgotPwData.mode, "email": forgotPwData.email, "mobileNum": forgotPwData.mobileNum }
             // // // API CALL 
             try {
-                const response = await axios.post('http://localhost:8000/auth/forgotPw', newPwData)
+                const response = await axios.post(`http://${process.env.DOCKER_IP}:8000/auth/forgotPw`, newPwData)
                 console.log(response)
                 enqueueSnackbar("OTP sent In email", { variant: "success" })
 
