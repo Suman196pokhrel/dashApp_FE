@@ -58,7 +58,7 @@
     align-items: center;
     justify-content: center;
 
-    position: relative;
+    // position: relative;
 
     .topInfo {
       position: absolute;
@@ -79,5 +79,26 @@
         }
       }
     }
+  }
+
+  @include xs {
+    .leftContainer {
+      display: none;
+    }
+  }
+
+  @include sm {
+    .leftContainer {
+      display: none;
+    }
+  }
+
+  @include md {
+    .leftContainer {
+      display: none;
+    }
+  }
+
+  @include lg {
   }
 }

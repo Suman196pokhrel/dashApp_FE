@@ -37,7 +37,7 @@ const Register = () => {
       setIsLoading(true)
 
       // const formDataEncoded = new URLSearchParams(formData).toString();
-      const response = await axios.post(`http://64.227.166.179:8000/auth/newUser`, formData)
+      const response = await axios.post(`http://localhost:8000/auth/newUser`, formData)
       console.log('Response => ', response.data)
       navigate("/auth/login")
       setIsLoading(false)
