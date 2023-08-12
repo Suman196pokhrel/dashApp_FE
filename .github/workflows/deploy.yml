@@ -1,0 +1,37 @@
+name: Deploy to Droplet
+
+on:
+  push:
+    branches: -main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          name: id_rsa
+      
+      - name : Deploy To Droplet
+        run : |
+          export GITHUB_USERNAME=${{secrets.G_USERNAME}}
+          export GITHUB_TOKEN=${{secrets.G_TOKEN}}
+          
+          ssh -i $HOME/id_rsa root@64.227.166.179 << EOF
+            cd /var/www/dashApp-FE
+      
+            git config --global credential.helper store
+            git pull origin main
+
+            sudo systemctl restart nginx
+          EOF
+
+
+
+      
+      
