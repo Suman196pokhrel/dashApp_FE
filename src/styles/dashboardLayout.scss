@@ -3,7 +3,8 @@
 .dashboardLayout {
   width: 100vw;
   display: flex;
-  justify-content: space-between;
+  // align-items: center;
+  justify-content: space-around;
   // position: relative;
   // background-color: rgba(0, 128, 0, 0.337);
 
@@ -27,6 +28,7 @@
     height: 100%;
     position: relative;
     // background-color: rgba(0, 0, 255, 0.396);
+    // overflow: hidden;
 
     .dashApps {
       width: 100%;
@@ -45,6 +47,7 @@
 @media screen and (min-width: 0px) and (max-width: 600px) {
   .dashboardLayout {
     // background-color: red;
+    // width: 100vw;
     .sidebar {
       display: none;
     }
