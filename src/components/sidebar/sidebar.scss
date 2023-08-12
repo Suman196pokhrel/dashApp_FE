@@ -9,6 +9,10 @@
 
   border-right: 1px solid rgb(215, 215, 215);
 
+  .controlButton {
+    display: none;
+  }
+
   .logoContainer {
     // background-color: blue;
     width: 100%;
@@ -114,10 +118,18 @@
   }
 }
 
+.sidebarOpen {
+  background-color: red;
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+}
+
 @media screen and (min-width: ($sm)) and (max-width: ($lg)) {
   .sidebar {
     // background-color: red;
-    width: 100px;
+    width: 90px;
+    // border-right: none;
 
     .adminTab {
       // display: none;

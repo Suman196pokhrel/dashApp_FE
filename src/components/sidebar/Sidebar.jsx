@@ -13,23 +13,9 @@ import SvgIcon from '@mui/material/SvgIcon'
 
 const Sidebar = () => {
 
-    // const [isDrawerOpen, setIsDrawerOpen] = useState(true)
-    // const [currentWidth, setCurrentWidth] = useState(0)
-    // const sidebarRef = useRef(null)
+
     const { pathname } = useLocation()
     const [currentPath, setCurrentPath] = useState(pathname.substring(pathname.lastIndexOf('/') + 1))
-    // const sidebarWidth = isDrawerOpen ? `320px` : '80px'; // Change 80 to your desired width for each nav item
-
-
-    // const handleDrawerOpen = () => {
-    //     console.log("Open clicked")
-    //     setIsDrawerOpen(true)
-    // }
-
-    // const handleDrawerClose = () => {
-    //     console.log("Close clicked")
-    //     setIsDrawerOpen(false)
-    // }
 
     useEffect(() => {
 
@@ -37,20 +23,7 @@ const Sidebar = () => {
 
 
     return (
-        <div className='sidebar' >
-
-            {/* <div className="drawerControl">
-                {isDrawerOpen ? (
-                    <IconButton onClick={handleDrawerClose}>
-                        <KeyboardArrowLeftIcon />
-                    </IconButton>
-                ) : (
-                    <IconButton onClick={handleDrawerOpen}>
-                        <KeyboardArrowRightIcon />
-                    </IconButton>
-                )}
-
-            </div> */}
+        <div className={`sidebar`} >
 
             <div className="logoContainer">
                 <img src="/favicon/android-chrome-192x192.png" alt="brang logo" />
