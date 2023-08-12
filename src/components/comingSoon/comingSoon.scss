@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .comingSoon {
   //   background-color: rgba(255, 0, 0, 0.119);
   // height: 100vh;
@@ -21,5 +23,21 @@
   img {
     width: 350px;
     object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: ($lg)) {
+  .comingSoon {
+    margin: 50%;
+    .header {
+      padding-left: 10px;
+      h1 {
+        font-size: 16px;
+      }
+    }
+
+    img {
+      width: 250px;
+    }
   }
 }
