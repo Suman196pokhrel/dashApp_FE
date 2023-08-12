@@ -1,3 +1,5 @@
+@import "../styles/variables.scss";
+
 .dashboardLayout {
   width: 100vw;
   display: flex;
@@ -20,18 +22,35 @@
   }
 
   .children {
-    width: 100%;
+    width: 90%;
     height: 100%;
     position: relative;
     // background-color: rgba(0, 0, 255, 0.396);
 
     .dashApps {
+      width: 100%;
       // background-color: rgba(255, 68, 0, 0.479);
       display: flex;
+      flex-direction: column;
+      align-items: center;
 
-      justify-content: center;
+      // justify-content: center;
 
       padding-bottom: 100px;
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  .dashboardLayout {
+    // background-color: red;
+    .sidebar {
+      display: none;
+    }
+
+    .children {
+      width: 100vw;
+      // background-color: red;
     }
   }
 }
