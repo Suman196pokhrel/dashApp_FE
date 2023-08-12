@@ -1,9 +1,9 @@
 @import "../../styles//variables.scss";
 
 .carousalComp {
-  position: relative;
-  height: 324px;
-  width: 504px;
+  // position: relative;
+  height: 100%;
+  width: 100%;
   border: 1px solid rgb(206, 206, 206);
   border-radius: 16px;
 
@@ -16,8 +16,8 @@
 
     .slick-prev {
       position: absolute;
-      top: 30px;
-      left: 400px;
+      top: 10%;
+      left: 70%;
       z-index: 15;
       opacity: 0.5;
     }
@@ -45,30 +45,31 @@
               position: absolute;
               z-index: 10;
               top: 20%;
+              // left: 20%;
               height: 100%;
               width: 100%;
-              padding-left: 24px;
+              padding-left: 10px;
               display: flex;
               flex-direction: column;
               align-items: start;
               justify-content: center;
 
               h1 {
-                font-size: 16px;
+                font-size: 14px;
                 color: #85ff91;
                 margin-bottom: 15px;
                 font-weight: 700;
               }
 
               .title {
-                font-size: 23px;
+                font-size: 18px;
                 color: white;
                 font-weight: 700;
                 margin-bottom: 10px;
               }
 
               .subText {
-                font-size: 14px;
+                font-size: 12px;
                 color: rgb(232, 232, 232);
                 width: 80%;
                 font-weight: 400;
@@ -94,20 +95,18 @@
 
     .slick-next {
       position: absolute;
-      top: 30px;
-      left: 450px;
+      top: 10%;
+      left: 85%;
       z-index: 15;
       opacity: 0.5;
     }
 
     .slick-dots {
       position: absolute;
-      // top: 0px;
-      // left: 450px;
-      left: -180px;
-      top: 10px;
-      z-index: 20;
-      // opacity: 0.5;
+      top: 5%;
+      right: 35%;
+      z-index: 15;
+      opacity: 0.5;
 
       li {
         margin: 0;
@@ -129,5 +128,22 @@
         }
       }
     }
+  }
+}
+
+@include lg {
+  .carousalComp {
+  }
+}
+
+@include xl {
+  .carousalComp {
+  }
+}
+
+@include xxl {
+  .carousalComp {
+    // padding: 20px;
+    // background-color: tomato;
   }
 }

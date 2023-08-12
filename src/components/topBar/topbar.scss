@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .topbar {
   position: sticky;
   top: 0;
@@ -12,6 +14,13 @@
   align-items: center;
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.833);
+
+  .drawerControl {
+    position: absolute;
+    top: 35%;
+    right: 90%;
+    display: none;
+  }
 
   .search {
   }
@@ -46,5 +55,18 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  .topbar {
+    // background-color: red;
+    .drawerControl {
+      display: inline;
+    }
+  }
+
+  .search {
+    margin-left: 10%;
   }
 }

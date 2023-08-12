@@ -39,7 +39,7 @@ const NewPw = () => {
             setIsLoading(true)
 
             // const formDataEncoded = new URLSearchParams(formData).toString();
-            const response = await axios.post('http://localhost:8000/auth/validateNewPw', { "value": data.otp, "password": data.confirmPassword, "mode": forgotPwData.mode, "identifier": forgotPwData.mode === "email" ? forgotPwData.email : forgotPwData.mobileNum })
+            const response = await axios.post(`http://localhost:8000/auth/validateNewPw`, { "value": data.otp, "password": data.confirmPassword, "mode": forgotPwData.mode, "identifier": forgotPwData.mode === "email" ? forgotPwData.email : forgotPwData.mobileNum })
             console.log('Response => ', response.data)
             navigate("/auth/login")
             setIsLoading(false)
@@ -48,7 +48,7 @@ const NewPw = () => {
         }
         catch (error) {
             console.log('Error Changing password , ', error.response.data.detail)
-            enqueueSnackbar(`${error.response.data.detail}`, { variant: "error" })
+            enqueueSnackbar(`${error.response.data.detail} `, { variant: "error" })
             setIsLoading(false)
 
         }
@@ -77,7 +77,7 @@ const NewPw = () => {
             const newPwData = { "mode": forgotPwData.mode, "email": forgotPwData.email, "mobileNum": forgotPwData.mobileNum }
             // // // API CALL 
             try {
-                const response = await axios.post('http://localhost:8000/auth/forgotPw', newPwData)
+                const response = await axios.post(`http://localhost:8000/auth/forgotPw`, newPwData)
                 console.log(response)
                 enqueueSnackbar("OTP sent In email", { variant: "success" })
 
@@ -142,7 +142,7 @@ const NewPw = () => {
                                     isInputNum={true}
                                     containerStyle={false}
                                     shouldAutoFocus={true}
-                                    renderInput={(props) => <input  {...props} style={{ height: "50px", width: "50px", borderRadius: "8px", marginBottom: "10px", textAlign: "center", fontSize: "20px", color: "#212B36", border: "1px solid rgba(145, 158, 171, 0.52)" }} />}
+                                    renderInput={(props) => <input id='otpInputI' {...props} style={{ height: "50px", width: "50px", borderRadius: "8px", marginBottom: "10px", textAlign: "center", fontSize: "20px", color: "#212B36", border: "1px solid rgba(145, 158, 171, 0.52)" }} />}
                                 />
                             )}
                         />

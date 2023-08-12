@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom"
+import { Navigate, createBrowserRouter } from "react-router-dom"
 import DashLayout from "../layouts/DashboardLayout"
 import DashboardApp from "../pages/dashboardApp/DashboardApp"
 import Ecommerce from "../pages/ecommerce/Ecommerce"
@@ -19,6 +19,11 @@ import AuthLayout from "../layouts/AuthLayout"
 
 
 const router = createBrowserRouter([
+
+  {
+    path: "/",
+    element: <Navigate to={"/auth/login"} />
+  },
 
   // AUTH PAGES 
 

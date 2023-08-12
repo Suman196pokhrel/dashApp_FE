@@ -24,6 +24,9 @@ const LineCh = ({ type, title, labels }) => {
                 toolbar: {
                     show: false, // Disable the chart toolbar
                 },
+                zoom: {
+                    enabled: false,
+                }
             },
             xaxis: {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],

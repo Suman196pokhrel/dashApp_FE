@@ -1,25 +1,24 @@
+@import "../styles/variables.scss";
+
 .dashboardLayout {
-  //   background-color: purple;
   width: 100vw;
   display: flex;
-  position: relative;
-  // align-items: center;
-  // position: fixed;
+  justify-content: space-between;
+  // position: relative;
+  // background-color: rgba(0, 128, 0, 0.337);
 
   .sidebar {
+    // background-color: rgba(255, 0, 0, 0.24);
+
     overflow: hidden;
     position: sticky;
     z-index: 1000;
     top: 0;
     left: 0;
-    // display: none;
-    // min-width: 80px;
-    // background-color: red;
+
     height: 100vh;
     padding: 35px 10px 10px 5px;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
+
     transition: width 0.4s;
   }
 
@@ -27,20 +26,43 @@
     width: 100%;
     height: 100%;
     position: relative;
-    // background-color: yellow;
-    // padding: 25px;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
+    // background-color: rgba(0, 0, 255, 0.396);
 
     .dashApps {
-      // background-color: blue;
+      width: 100%;
+      // background-color: rgba(255, 68, 0, 0.479);
       display: flex;
-      // align-items: center;
-      justify-content: center;
-      // background-color: red;
+      flex-direction: column;
+      align-items: center;
+
+      // justify-content: center;
+
       padding-bottom: 100px;
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  .dashboardLayout {
+    // background-color: red;
+    .sidebar {
+      display: none;
+    }
+
+    .children {
+      width: 100vw;
+      // background-color: red;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1199px) {
+  .dashboardLayout {
+    .children {
+      // background-color: red;
+      width: 83%;
+      .dashApps {
+      }
     }
   }
 }

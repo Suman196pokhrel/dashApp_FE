@@ -35,7 +35,7 @@ const Login = () => {
       };
 
       const formDataEncoded = new URLSearchParams(formData).toString();
-      const response = await axios.post('http://localhost:8000/auth/login', formDataEncoded, config)
+      const response = await axios.post(`http://localhost:8000/auth/login`, formDataEncoded, config)
       console.log(response)
       sessionStorage.setItem('isAuthenticated', true)
       navigate("/dashboard/app")

@@ -108,4 +108,94 @@
       }
     }
   }
+
+  @include xs {
+    // background-color: rgba(160, 25, 25, 0.248);
+
+    .registerHeader {
+      margin-bottom: 20px;
+      margin-left: 10%;
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .registerForm {
+      form {
+        align-items: center;
+        .formFields {
+          .name {
+            width: 90%;
+          }
+
+          .dobPhone {
+            width: 90%;
+          }
+
+          .MuiTextField-root {
+            height: 46px;
+            width: 345px;
+            margin-bottom: 28px;
+            font-size: 40px;
+          }
+        }
+        button {
+          width: 70%;
+        }
+      }
+    }
+  }
+
+  @include sm {
+    // background-color: rgba(0, 0, 255, 0.207);
+
+    .registerHeader {
+      margin-bottom: 20px;
+      margin-left: 10%;
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .registerForm {
+      form {
+        align-items: center;
+        // width: 90%;
+        .formFields {
+          .name {
+            width: 80%;
+            .MuiTextField-root {
+              height: 40px;
+
+              margin-bottom: 28px;
+              font-size: 40px;
+            }
+          }
+
+          .dobPhone {
+            width: 80%;
+            .MuiTextField-root {
+              height: 40px;
+
+              margin-bottom: 28px;
+              font-size: 40px;
+            }
+          }
+
+          .MuiTextField-root {
+            height: 40px;
+            width: 330px;
+            margin-bottom: 28px;
+            font-size: 40px;
+          }
+        }
+
+        button {
+          width: 70%;
+        }
+      }
+    }
+  }
 }

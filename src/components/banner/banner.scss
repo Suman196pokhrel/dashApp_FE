@@ -25,7 +25,7 @@
     }
     p {
       color: #5b6d80;
-      width: 350px;
+      width: 100%;
       font-size: 14px;
     }
     button {
@@ -62,5 +62,33 @@
       top: -100px;
       right: 55px;
     }
+  }
+}
+
+@include md {
+  .banner {
+    // background-color: rgb(89, 0, 255);
+    width: 100%;
+  }
+}
+
+@include lg {
+  .banner {
+    // background-color: rgb(204, 255, 0);
+    width: 100%;
+  }
+}
+
+@include xl {
+  .banner {
+    // background-color: rgb(23, 41, 23);
+    width: 100%;
+  }
+}
+
+@include xxl {
+  .banner {
+    // background-color: red;
+    width: 100%;
   }
 }

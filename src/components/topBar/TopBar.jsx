@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router-dom'
 import { Modal } from 'antd'
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 
 
 
@@ -105,12 +106,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 
-const TopBar = () => {
+const TopBar = ({ handleDrawer }) => {
     const [isSearchModalOpen, setIsSearchModalOpen] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [anchorEl, setAnchorEl] = useState(null)
     const navigate = useNavigate()
     const open = Boolean(anchorEl)
+
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -137,6 +140,13 @@ const TopBar = () => {
 
     return (
         <div className='topbar'>
+
+            <div className="drawerControl">
+                <IconButton onClick={handleDrawer}>
+                    <DensityMediumIcon />
+                </IconButton>
+            </div>
+
             <div className="search">
                 <IconButton onClick={showModal}>
                     <SearchOutlined />
