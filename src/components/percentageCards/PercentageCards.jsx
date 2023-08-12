@@ -99,6 +99,7 @@ const PercentageCards = ({ data = [75], text = 38566, subText = "Conversions", b
                     series={data}
                     type="radialBar"
                     height={125}
+
                 />
             </div>
 

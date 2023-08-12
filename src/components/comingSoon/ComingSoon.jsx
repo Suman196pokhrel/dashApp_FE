@@ -14,7 +14,7 @@ const ComingSoon = () => {
 
             <motion.img
                 {...smoothComeUp}
-                src="/auth/login/static/illustrations/illustrations_comingSoon.png" alt="comming soon"
+                src="/static/illustrations/illustrations_comingSoon.png" alt="comming soon"
             />
 
         </div>

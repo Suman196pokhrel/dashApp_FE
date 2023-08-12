@@ -35,7 +35,7 @@ const Login = () => {
       };
 
       const formDataEncoded = new URLSearchParams(formData).toString();
-      const response = await axios.post('http://localhost:8000/auth/login', formDataEncoded, config)
+      const response = await axios.post(`http://localhost:8000/auth/login`, formDataEncoded, config)
       console.log(response)
       sessionStorage.setItem('isAuthenticated', true)
       navigate("/dashboard/app")
@@ -54,88 +54,88 @@ const Login = () => {
 
 
   return (
-    <AuthLayout>
-
-      <motion.div
-
-        className='login'
-        {...smoothComeUp}
-      >
 
 
-        <div className="loginHeader">
-          <h1>Sign in to Dashapp</h1>
-          <p>Enter your details below</p>
+    <motion.div
+
+      className='login'
+      {...smoothComeUp}
+    >
+
+
+      <div className="loginHeader">
+        <h1>Sign in to Dashapp</h1>
+        <p>Enter your details below</p>
+      </div>
+
+      <div className="thirdPartyLogin">
+        <div className="logoContainer">
+          <img src="" alt="" />
         </div>
+      </div>
 
-        <div className="thirdPartyLogin">
-          <div className="logoContainer">
-            <img src="" alt="" />
+      <div className="loginForm">
+
+        <form onSubmit={handleSubmit(handleLogin)} noValidate>
+
+          <div className="formFields">
+
+            <TextField
+              {...register("loginEmail", {
+                required: 'Enter the email.',
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: " Invalid email address"
+                }
+              })}
+              type='email'
+              id='loginEmail'
+              label="Email address"
+              variant='outlined'
+              error={!!errors.loginEmail}
+              helperText={errors.loginEmail?.message}
+            />
+
+
+            <TextField
+              {...register("loginPassword", {
+                required: "Enter the password",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters"
+                }
+              })}
+              type="password"
+              id="loginPassword"
+              label="Password"
+              variant="outlined"
+              error={!!errors.loginPassword}
+              helperText={errors.loginPassword?.message}
+            />
           </div>
-        </div>
 
-        <div className="loginForm">
+          <div className="formUtils">
+            <Controller
+              name="rememberMe"
+              control={control}
+              defaultValue={true}
+              render={({ field }) => (
+                <Checkbox {...field} checked={field.value} style={{}}>
+                  Remember Me
+                </Checkbox>
+              )}
+            />
 
-          <form onSubmit={handleSubmit(handleLogin)} noValidate>
+            <Link to={"/auth/forgotPw"}><p>Forgot password?</p></Link>
+          </div>
 
-            <div className="formFields">
+          <button type='submit'>{isLoading ? <CircularProgress color='inherit' size={25} /> : 'Login'}</button>
+        </form>
+        {/* <DevTool control={control} /> */}
+      </div>
 
-              <TextField
-                {...register("loginEmail", {
-                  required: 'Enter the email.',
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: " Invalid email address"
-                  }
-                })}
-                type='email'
-                id='loginEmail'
-                label="Email address"
-                variant='outlined'
-                error={!!errors.loginEmail}
-                helperText={errors.loginEmail?.message}
-              />
+    </motion.div>
 
-
-              <TextField
-                {...register("loginPassword", {
-                  required: "Enter the password",
-                  minLength: {
-                    value: 6,
-                    message: "Password must be at least 6 characters"
-                  }
-                })}
-                type="password"
-                id="loginPassword"
-                label="Password"
-                variant="outlined"
-                error={!!errors.loginPassword}
-                helperText={errors.loginPassword?.message}
-              />
-            </div>
-
-            <div className="formUtils">
-              <Controller
-                name="rememberMe"
-                control={control}
-                defaultValue={true}
-                render={({ field }) => (
-                  <Checkbox {...field} checked={field.value} style={{}}>
-                    Remember Me
-                  </Checkbox>
-                )}
-              />
-
-              <Link to={"/auth/forgotPw"}><p>Forgot password?</p></Link>
-            </div>
-
-            <button type='submit'>{isLoading ? <CircularProgress color='inherit' size={25} /> : 'Login'}</button>
-          </form>
-          {/* <DevTool control={control} /> */}
-        </div>
-
-      </motion.div>
-    </AuthLayout>
 
   )
 }

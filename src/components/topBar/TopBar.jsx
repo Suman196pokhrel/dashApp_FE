@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router-dom'
 import { Modal } from 'antd'
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 
 
 
@@ -105,12 +106,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 
-const TopBar = () => {
+const TopBar = ({ handleDrawer }) => {
     const [isSearchModalOpen, setIsSearchModalOpen] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [anchorEl, setAnchorEl] = useState(null)
     const navigate = useNavigate()
     const open = Boolean(anchorEl)
+
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -137,6 +140,13 @@ const TopBar = () => {
 
     return (
         <div className='topbar'>
+
+            <div className="drawerControl">
+                <IconButton onClick={handleDrawer}>
+                    <DensityMediumIcon />
+                </IconButton>
+            </div>
+
             <div className="search">
                 <IconButton onClick={showModal}>
                     <SearchOutlined />
@@ -145,7 +155,7 @@ const TopBar = () => {
 
             <div className="topRight">
                 <IconButton>
-                    <img className='flag' src="/auth/login/static/icons/navbar/nepal.png" alt="" />
+                    <img className='flag' src="/static/icons/navbar/nepal.png" alt="" />
                 </IconButton>
                 <IconButton>
                     <Badge badgeContent={4} color="error">
@@ -161,7 +171,7 @@ const TopBar = () => {
                 <IconButton
                     onClick={handleClick}
                 >
-                    <Avatar src='/auth/login/static/mockPhotos/suman.jpeg' sx={{ width: 48, height: 48, border: "3px solid #32e089" }} />
+                    <Avatar src='/static/mockPhotos/suman.jpeg' sx={{ width: 48, height: 48, border: "3px solid #32e089" }} />
                 </IconButton>
             </div>
 

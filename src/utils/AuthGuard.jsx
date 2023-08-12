@@ -1,20 +1,29 @@
-import React from 'react'
-import { Navigate } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Navigate, Outlet } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 
 const AuthGuard = ({ children }) => {
     const isAuthenticated = sessionStorage.getItem('isAuthenticated')
+    let { pathname } = useLocation()
+    pathname = pathname.substring(1, 5)
+    console.log(pathname)
 
 
 
 
 
-    if (isAuthenticated === 'true') {
-        return (
-            <div>{children}</div>
-        )
+
+    if (pathname === 'auth' && isAuthenticated !== 'true') {
+        return <>{children}</>
     }
-    else {
+    else if (pathname === 'auth' && isAuthenticated === 'true') {
+        return <Navigate to={"/dashboard/app"} />
+    }
+    else if (pathname !== 'auth' && isAuthenticated === 'true') {
+        return <>{children}</>
+    }
+    else if (pathname !== 'auth' && isAuthenticated !== 'true') {
         return <Navigate to={"/auth/login"} />
     }
 

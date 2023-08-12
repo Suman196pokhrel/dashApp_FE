@@ -10,7 +10,7 @@ import { Divider } from 'antd';
 const applications = [
     {
         id: 1,
-        img: "/auth/login/static/icons/ic_chrome.svg",
+        img: "/static/icons/ic_chrome.svg",
         title: "Chrom",
         platform: {
             icon: "apple",
@@ -22,7 +22,7 @@ const applications = [
     },
     {
         id: 2,
-        img: "/auth/login/static/icons/ic_drive.svg",
+        img: "/static/icons/ic_drive.svg",
         title: "Drive",
         platform: {
             icon: "apple",
@@ -34,7 +34,7 @@ const applications = [
     },
     {
         id: 3,
-        img: "/auth/login/static/icons/ic_dropbox.svg",
+        img: "/static/icons/ic_dropbox.svg",
         title: "Dropbox",
         platform: {
             icon: "windows",
@@ -46,7 +46,7 @@ const applications = [
     },
     {
         id: 4,
-        img: "/auth/login/static/icons/ic_evernote.svg",
+        img: "/static/icons/ic_evernote.svg",
         title: "Evernote",
         platform: {
             icon: "apple",
@@ -58,7 +58,7 @@ const applications = [
     },
     {
         id: 5,
-        img: "/auth/login/static/icons/ic_github.svg",
+        img: "/static/icons/ic_github.svg",
         title: "Github",
         platform: {
             icon: "windows",

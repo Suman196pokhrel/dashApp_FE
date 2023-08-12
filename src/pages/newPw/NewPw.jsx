@@ -39,7 +39,7 @@ const NewPw = () => {
             setIsLoading(true)
 
             // const formDataEncoded = new URLSearchParams(formData).toString();
-            const response = await axios.post('http://localhost:8000/auth/validateNewPw', { "value": data.otp, "password": data.confirmPassword, "mode": forgotPwData.mode, "identifier": forgotPwData.mode === "email" ? forgotPwData.email : forgotPwData.mobileNum })
+            const response = await axios.post(`http://localhost:8000/auth/validateNewPw`, { "value": data.otp, "password": data.confirmPassword, "mode": forgotPwData.mode, "identifier": forgotPwData.mode === "email" ? forgotPwData.email : forgotPwData.mobileNum })
             console.log('Response => ', response.data)
             navigate("/auth/login")
             setIsLoading(false)
@@ -48,7 +48,7 @@ const NewPw = () => {
         }
         catch (error) {
             console.log('Error Changing password , ', error.response.data.detail)
-            enqueueSnackbar(`${error.response.data.detail}`, { variant: "error" })
+            enqueueSnackbar(`${error.response.data.detail} `, { variant: "error" })
             setIsLoading(false)
 
         }
@@ -77,7 +77,7 @@ const NewPw = () => {
             const newPwData = { "mode": forgotPwData.mode, "email": forgotPwData.email, "mobileNum": forgotPwData.mobileNum }
             // // // API CALL 
             try {
-                const response = await axios.post('http://localhost:8000/auth/forgotPw', newPwData)
+                const response = await axios.post(`http://localhost:8000/auth/forgotPw`, newPwData)
                 console.log(response)
                 enqueueSnackbar("OTP sent In email", { variant: "success" })
 
@@ -101,121 +101,121 @@ const NewPw = () => {
 
 
     return (
-        <AuthLayout>
 
 
-            <motion.div
 
-                className='forgotPw'
-                {...smoothComeUp}
-            >
-                <div className="formUtils">
+        <motion.div
 
-                    <Link to={"/auth/login"}><p><ChevronLeftIcon />Return to Login</p></Link>
-                </div>
+            className='forgotPw'
+            {...smoothComeUp}
+        >
+            <div className="formUtils">
 
-
-                <div className="fpHeader">
-                    <h1>Please check your email!</h1>
-                    <p>We've emailed a 6-digit confirmation code to acb@domain, please enter the code in below box to verify your email.</p>
-                </div>
+                <Link to={"/auth/login"}><p><ChevronLeftIcon />Return to Login</p></Link>
+            </div>
 
 
-                <div className="fpForm">
-
-                    <form onSubmit={handleSubmit(handleNp)} noValidate>
-
-                        <div className="formFields">
-
-
-                            <Controller
-                                name='otp'
-                                control={control}
-                                rules={{ required: 'OTP cannot be empty', minLength: { value: 6, message: "OTP incorrect" } }}
-                                defaultValue=""
-                                render={({ field }) => (
-                                    <OTPInput
-                                        // placeholder='------'
-                                        value={field.value}
-                                        onChange={field.onChange}
-                                        numInputs={6} // Change this to 5 if you want 5 consecutive input boxes
-                                        isInputNum={true}
-                                        containerStyle={false}
-                                        shouldAutoFocus={true}
-                                        renderInput={(props) => <input  {...props} style={{ height: "50px", width: "50px", borderRadius: "8px", marginBottom: "10px", textAlign: "center", fontSize: "20px", color: "#212B36", border: "1px solid rgba(145, 158, 171, 0.52)" }} />}
-                                    />
-                                )}
-                            />
-                            {errors.otp && <p style={{ color: "red", fontSize: "12px", fontWeight: 400 }}>{errors.otp.message}</p>}
-
-                            <TextField
-                                {...register("newPassword", {
-                                    required: 'Password cannot be empty.',
-                                    minLength: {
-                                        value: 6,
-                                        message: "password should be atleast 6 digits"
-                                    }
-                                })}
-                                sx={{ margin: "24px 0px" }}
-                                type='password'
-                                label="Password"
-                                variant='outlined'
-                                error={!!errors.newPassword}
-                                helperText={errors.newPassword?.message}
-
-                            />
-
-                            <TextField
-                                {...register("confirmPassword", {
-                                    // required: 'Confirm password cannot be empty.',
-                                    validate: (value) => value === control._formValues.newPassword || 'Passwords do not match'
-                                })}
-                                sx={{ margin: "0 0 24px 0px" }}
-                                type='password'
-                                label="Confirm password"
-                                variant='outlined'
-                                error={!!errors.confirmPassword}
-                                helperText={errors.confirmPassword?.message}
-
-                            />
-
-                        </div>
-
-                        <button type='submit'>{isLoading ? <CircularProgress color='inherit' size={25} /> : 'Verify'}</button>
-
-                        <div className="formUtils">
-
-                            {isResending ? (
-
-                                <div style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "center", gap: "5px", marginTop: "25px" }}>
-                                    <div className="loaderResend">
-                                        <p className='disabled'>{`Resend available after ${remainingTime} seconds`}</p>
-                                        <Progress percent={((30 - remainingTime) / 30) * 100} status='active' showInfo={false} strokeColor={{ from: "#01A870", to: "#5BE49B" }} />
-
-                                    </div>
+            <div className="fpHeader">
+                <h1>Please check your email!</h1>
+                <p>We've emailed a 6-digit confirmation code to acb@domain, please enter the code in below box to verify your email.</p>
+            </div>
 
 
-                                </div>
-                            ) : (
+            <div className="fpForm">
 
-                                <div style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "center", gap: "5px", marginTop: "25px" }}>
-                                    Don't have a code?
-                                    <p onClick={handleResendCode} style={{ cursor: "pointer" }}>
-                                        Resend code
-                                    </p>
-                                </div>
+                <form onSubmit={handleSubmit(handleNp)} noValidate>
+
+                    <div className="formFields">
+
+
+                        <Controller
+                            name='otp'
+                            control={control}
+                            rules={{ required: 'OTP cannot be empty', minLength: { value: 6, message: "OTP incorrect" } }}
+                            defaultValue=""
+                            render={({ field }) => (
+                                <OTPInput
+                                    // placeholder='------'
+                                    value={field.value}
+                                    onChange={field.onChange}
+                                    numInputs={6} // Change this to 5 if you want 5 consecutive input boxes
+                                    isInputNum={true}
+                                    containerStyle={false}
+                                    shouldAutoFocus={true}
+                                    renderInput={(props) => <input id='otpInputI' {...props} style={{ height: "50px", width: "50px", borderRadius: "8px", marginBottom: "10px", textAlign: "center", fontSize: "20px", color: "#212B36", border: "1px solid rgba(145, 158, 171, 0.52)" }} />}
+                                />
                             )}
+                        />
+                        {errors.otp && <p style={{ color: "red", fontSize: "12px", fontWeight: 400 }}>{errors.otp.message}</p>}
+
+                        <TextField
+                            {...register("newPassword", {
+                                required: 'Password cannot be empty.',
+                                minLength: {
+                                    value: 6,
+                                    message: "password should be atleast 6 digits"
+                                }
+                            })}
+                            sx={{ margin: "24px 0px" }}
+                            type='password'
+                            label="Password"
+                            variant='outlined'
+                            error={!!errors.newPassword}
+                            helperText={errors.newPassword?.message}
+
+                        />
+
+                        <TextField
+                            {...register("confirmPassword", {
+                                // required: 'Confirm password cannot be empty.',
+                                validate: (value) => value === control._formValues.newPassword || 'Passwords do not match'
+                            })}
+                            sx={{ margin: "0 0 24px 0px" }}
+                            type='password'
+                            label="Confirm password"
+                            variant='outlined'
+                            error={!!errors.confirmPassword}
+                            helperText={errors.confirmPassword?.message}
+
+                        />
+
+                    </div>
+
+                    <button type='submit'>{isLoading ? <CircularProgress color='inherit' size={25} /> : 'Verify'}</button>
+
+                    <div className="formUtils">
+
+                        {isResending ? (
+
+                            <div style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "center", gap: "5px", marginTop: "25px" }}>
+                                <div className="loaderResend">
+                                    <p className='disabled'>{`Resend available after ${remainingTime} seconds`}</p>
+                                    <Progress percent={((30 - remainingTime) / 30) * 100} status='active' showInfo={false} strokeColor={{ from: "#01A870", to: "#5BE49B" }} />
+
+                                </div>
+
+
+                            </div>
+                        ) : (
+
+                            <div style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "center", gap: "5px", marginTop: "25px" }}>
+                                Don't have a code?
+                                <p onClick={handleResendCode} style={{ cursor: "pointer" }}>
+                                    Resend code
+                                </p>
+                            </div>
+                        )}
 
 
 
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
+            </div>
 
-            </motion.div>
-            {/* <DevTool control={control} /> */}
+        </motion.div>
 
-        </AuthLayout>
+
+
 
     )
 }

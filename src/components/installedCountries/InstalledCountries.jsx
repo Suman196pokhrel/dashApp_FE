@@ -8,7 +8,7 @@ import { Divider } from '@mui/material';
 const topCountries = [
     {
         id: 1,
-        img: "/auth/login/static/icons/ic_flag_de.svg",
+        img: "/static/icons/ic_flag_de.svg",
         title: "Denmark",
         platformValues: {
             android: "9.9",
@@ -19,7 +19,7 @@ const topCountries = [
     },
     {
         id: 2,
-        img: "/auth/login/static/icons/ic_flag_en.svg",
+        img: "/static/icons/ic_flag_en.svg",
         title: "England",
         platformValues: {
             android: "1.9",
@@ -29,7 +29,7 @@ const topCountries = [
     },
     {
         id: 3,
-        img: "/auth/login/static/icons/ic_flag_fr.svg",
+        img: "/static/icons/ic_flag_fr.svg",
         title: "France",
         platformValues: {
             android: "9.12",
@@ -39,7 +39,7 @@ const topCountries = [
     },
     {
         id: 4,
-        img: "/auth/login/static/icons/ic_flag_kr.svg",
+        img: "/static/icons/ic_flag_kr.svg",
         title: "Korea",
         platformValues: {
             android: "6.8",
@@ -49,7 +49,7 @@ const topCountries = [
     },
     {
         id: 5,
-        img: "/auth/login/static/icons/ic_flag_us.svg",
+        img: "/static/icons/ic_flag_us.svg",
         title: "USA",
         platformValues: {
             android: "8.4",
