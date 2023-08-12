@@ -18,6 +18,8 @@ jobs:
         with:
           key: ${{secrets.SSH_PRIVATE_KEY}}
           name: id_rsa
+          known_hosts: |
+            64.227.166.179 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCz+eM3NbHtRfmCT9nMYN/PIJjpdGo2JEkrxK/KnXUFXw5qUW9tXGOgRrYFD1VgMS07C/CHCsw4nX/OZQ/LX7IgoCl+OmL97U+E0EcJ+1HvPWR8BCv7N1TpEe0Vuk+VSvBOsZr/37JoxFB2KxYH7Tbi2kujiiz5GlWY+qqiUDEmxTqQ/PtvjHTKJ20RYZ3h7QT+0DNqw82EYOak7v487GdNHwpPKiI0zBGu80J+Tusaxu8KZCCvNoY4j6nfBT247HPLrJIMd1AehiUMjzSl0jcWUgU5be19+CkM1B39tbjBECiEJHTNDq7b2Hy9D6c1Gwbo14/kAkodEmaeAOpySKxgIPvCbokO/wA2syT7oydF2OhH4zGujsZtr710uKcWovgL5hCFl+LEdQkn+Iz4E/WlJ6b+sf03L8zovaCiKEnnpZJ+U1rxSj/oG94LHrw6fTjjKppzMBgtazWWO63wGhSYFDPn+ZnvF7To4IWZgRdwn+t1wV+CPsJcWurhRsfNCdM=
       
       - name : Deploy To Droplet
         run : |
