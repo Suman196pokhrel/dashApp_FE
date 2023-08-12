@@ -34,9 +34,10 @@ $primary-bg-green-shadows: 0px 8px 16px 0px rgba(0, 171, 85, 0.24);
 // ---------------------------------------------
 $xs: 390px;
 $sm: 600px;
-$md: 1100px;
+$md: 1000px;
 $lg: 1200px;
-$xl: 1536px;
+$xl: 1736px;
+$xxl: 2560px;
 
 @mixin xs {
   @media screen and (min-width: 0px) and (max-width: ($xs)) {
@@ -64,6 +65,12 @@ $xl: 1536px;
 
 @mixin xl {
   @media screen and (min-width: ($lg)) and (max-width: ($xl)) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media screen and (min-width: ($xl)) and (max-width: ($xxl)) {
     @content;
   }
 }

@@ -1,8 +1,11 @@
+@import "../../styles/variables.scss";
 .sidebar {
+  // background-color: rgba(255, 0, 0, 0.588);
   display: flex;
   flex-direction: column;
   // align-items: center;
-  width: 100%;
+  // justify-content: space-between;
+  width: 300px;
 
   border-right: 1px solid rgb(215, 215, 215);
 
@@ -33,18 +36,6 @@
     img {
       width: 40px;
       border-radius: 50%;
-    }
-
-    .adminInfo {
-      p {
-        font-size: 14px;
-        color: #212b36;
-        font-weight: 600;
-      }
-      span {
-        font-size: 14px;
-        color: #637381;
-      }
     }
   }
 
@@ -120,5 +111,43 @@
   .nonSelectedHover {
     background-color: #6373811b;
     color: #212b36;
+  }
+}
+
+@media screen and (min-width: ($sm)) and (max-width: ($lg)) {
+  .sidebar {
+    // background-color: red;
+    width: 100px;
+
+    .adminTab {
+      // display: none;
+      .adminInfo {
+        display: none;
+      }
+    }
+
+    .topic {
+      padding-left: 0px;
+
+      h1 {
+        display: none;
+      }
+      .item {
+        // background-color: #00ab5666;
+        flex-direction: column;
+        height: 70px;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+
+        p {
+          font-size: 12px;
+          margin: 0px;
+        }
+
+        .MuiSvgIcon-root {
+        }
+      }
+    }
   }
 }
