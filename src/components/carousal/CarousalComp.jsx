@@ -37,7 +37,7 @@ const CarousalComp = ({ carousalItems }) => {
                                 <p className="subText">{item.subText.length > 70 ? item.subText.substring(0, 70) + '...' : item.subText}</p>
                             </div>
                         ) : (
-                            <div className='textInfo' style={{ top: "0%", background: "linear-gradient(180deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 100%)" }}>
+                            <div className='textInfo'>
                                 <h1>New</h1>
                                 <p className="title">{item.title}</p>
                                 <button>Buy Now</button>

@@ -5,10 +5,8 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  //   background-color: red;
   padding: 5px 40px;
   margin-bottom: 15px;
-  // overflow-x: hidden;
 
   display: flex;
   align-items: center;
@@ -17,7 +15,7 @@
 
   .drawerControl {
     position: absolute;
-    top: 35%;
+    top: 21%;
     right: 90%;
     display: none;
   }
@@ -30,11 +28,9 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    // background-color: rgba(255, 0, 0, 0.151);
     .flag {
       width: 25px;
     }
-    // color: #32e089;
 
     .rotateSetting {
       animation: rotate 8s linear infinite;
@@ -63,6 +59,24 @@
     // background-color: red;
     .drawerControl {
       display: inline;
+    }
+
+    .topRight {
+      .noti {
+        display: none;
+      }
+
+      .people {
+        display: none;
+      }
+
+      .flag {
+        display: none;
+      }
+
+      .settings {
+        display: none;
+      }
     }
   }
 

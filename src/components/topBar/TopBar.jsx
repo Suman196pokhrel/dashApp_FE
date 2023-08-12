@@ -154,24 +154,24 @@ const TopBar = ({ handleDrawer }) => {
             </div>
 
             <div className="topRight">
-                <IconButton>
+                <IconButton className='flag'>
                     <img className='flag' src="/static/icons/navbar/nepal.png" alt="" />
                 </IconButton>
-                <IconButton>
+                <IconButton className='noti'>
                     <Badge badgeContent={4} color="error">
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>
-                <IconButton>
+                <IconButton className='people'>
                     <PeopleAltIcon />
                 </IconButton>
-                <IconButton >
+                <IconButton className='settings'>
                     <SettingsIcon className='rotateSetting' />
                 </IconButton>
                 <IconButton
                     onClick={handleClick}
                 >
-                    <Avatar src='/static/mockPhotos/suman.jpeg' sx={{ width: 48, height: 48, border: "3px solid #32e089" }} />
+                    <Avatar src='' sx={{ width: 48, height: 48, border: "3px solid #32e089" }} />
                 </IconButton>
             </div>
 
