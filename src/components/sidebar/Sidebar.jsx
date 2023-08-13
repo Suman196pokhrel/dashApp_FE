@@ -30,7 +30,7 @@ const Sidebar = () => {
             </div>
 
             <div className="adminTab">
-                <img src="/static/mockPhotos/suman.jpeg" alt="AdminPic" />
+                <img src="/static/mockPhotos/avatars/avatar_1.jpg" alt="AdminPic" />
                 <div className="adminInfo">
                     <p>Suman Pokhrel</p>
                     <span>Admin</span>
