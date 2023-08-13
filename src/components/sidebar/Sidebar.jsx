@@ -26,7 +26,7 @@ const Sidebar = () => {
         <div className={`sidebar`} >
 
             <div className="logoContainer">
-                <img src="/favicon/android-chrome-192x192.png" alt="brang logo" />
+                <img src="/favicon/testIcon.jpg" alt="brang logo" />
             </div>
 
             <div className="adminTab">

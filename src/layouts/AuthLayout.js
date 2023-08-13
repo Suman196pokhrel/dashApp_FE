@@ -44,7 +44,7 @@ const AuthLayout = () => {
 
           <div className="leftContainer">
             <div className="appLogo">
-              <img src="/favicon/android-chrome-192x192.png" alt="App Icon" />
+              <img src="/favicon/testIcon.jpg" alt="App Icon" />
             </div>
             <motion.h1 {...smoothComeDown}>{getPageTitle(pathname)}</motion.h1>
             <motion.img src={`/static/illustrations/illustration_${pathname}.png`} alt="Login Illustrations" {...smoothComeUp} />
