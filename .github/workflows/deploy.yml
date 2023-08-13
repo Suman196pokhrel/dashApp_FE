@@ -2,40 +2,22 @@ name: Deploy to Droplet
 
 on:
   push:
-    branches: abcd
+    branches:
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.0
         with:
-          token: ${{secrets.G_TOKEN}}
-
-      - name: Install SSH key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{secrets.SSH_PRIVATE_KEY}}
-          name: id_rsa
-          known_hosts: |
-            64.227.166.179 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCz+eM3NbHtRfmCT9nMYN/PIJjpdGo2JEkrxK/KnXUFXw5qUW9tXGOgRrYFD1VgMS07C/CHCsw4nX/OZQ/LX7IgoCl+OmL97U+E0EcJ+1HvPWR8BCv7N1TpEe0Vuk+VSvBOsZr/37JoxFB2KxYH7Tbi2kujiiz5GlWY+qqiUDEmxTqQ/PtvjHTKJ20RYZ3h7QT+0DNqw82EYOak7v487GdNHwpPKiI0zBGu80J+Tusaxu8KZCCvNoY4j6nfBT247HPLrJIMd1AehiUMjzSl0jcWUgU5be19+CkM1B39tbjBECiEJHTNDq7b2Hy9D6c1Gwbo14/kAkodEmaeAOpySKxgIPvCbokO/wA2syT7oydF2OhH4zGujsZtr710uKcWovgL5hCFl+LEdQkn+Iz4E/WlJ6b+sf03L8zovaCiKEnnpZJ+U1rxSj/oG94LHrw6fTjjKppzMBgtazWWO63wGhSYFDPn+ZnvF7To4IWZgRdwn+t1wV+CPsJcWurhRsfNCdM=
-      
-      - name : Deploy To Droplet
-        run : |
-          export GITHUB_USERNAME=${{secrets.G_USERNAME}}
-          export GITHUB_TOKEN=${{secrets.G_TOKEN}}
+          ssh-private-key: ${{ secrets.DROPLET_PRIVATE_KEY}}
           
-          ssh -i $HOME/id_rsa root@64.227.166.179 << EOF
-            cd /var/www/dashApp_FE
-      
-            git config --global credential.helper store
-            git pull origin main
-
-            sudo systemctl restart nginx
-          EOF
-
-
-
-      
-      
+      - name: SSH into Droplet and update
+        run: |
+          ssh -o StrictHostKeyChecking=no -A root@64.227.166.179 "cd /var/www/dashApp_FE && git pull origin main"
