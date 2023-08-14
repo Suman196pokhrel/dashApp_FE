@@ -48,7 +48,7 @@ const ForgotPw = () => {
             };
 
             // const formDataEncoded = new URLSearchParams(formData).toString();
-            const response = await axios.post(`http://localhost:8000/auth/forgotPw`, forgotPwData)
+            const response = await axios.post(`http://127.0.0.1:8000/auth/forgotPw`, forgotPwData)
             console.log('Response => ', response.data)
             sessionStorage.setItem('forgotPwData', JSON.stringify(forgotPwData))
             navigate("/auth/newPw")
