@@ -2,6 +2,8 @@
 
 Welcome to the `dashApp_FE` repository – the frontend component of the comprehensive dashApp Fullstack Web Application.
 
+🌐 **Live Preview:** [![Live Preview](https://img.shields.io/badge/Live_Preview-🚀-blue)](http://64.227.166.179:3000)
+
 ## 📋 Table of Contents
 
 - [📄 Overview](#overview)
