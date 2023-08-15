@@ -11,8 +11,8 @@ const ICONS = {
     cart: getIcon('ic_cart'),
     invoice: getIcon('ic_invoice'),
     mail: getIcon('ic_mail'),
-    user: getIcon('ic_user'),
     product: getIcon('ic_product'),
+    user: getIcon('ic_user'),
     banking: getIcon('ic_banking'),
     calendar: getIcon('ic_calendar'),
     ecommerce: getIcon('ic_ecommerce'),
@@ -53,17 +53,18 @@ export const sidebarItems = [
         title: "MANAGEMENT",
         listItems: [
             {
-                id: 1,
-                title: "Users",
-                url: "users",
-                icon: ICONS.user
-            },
-            {
                 id: 2,
                 title: "Products",
                 url: "products",
                 icon: ICONS.product
             },
+            {
+                id: 1,
+                title: "Users",
+                url: "users",
+                icon: ICONS.user
+            },
+
             {
                 id: 3,
                 title: "Orders",
