@@ -127,9 +127,12 @@
 
 @media screen and (min-width: ($sm)) and (max-width: ($lg)) {
   .sidebar {
-    // background-color: red;
-    width: 90px;
+    // border-left: 5px solid black;
+
+    width: 85px;
     // border-right: none;
+    margin: 0;
+    padding: 0;
 
     .adminTab {
       // display: none;
