@@ -64,7 +64,6 @@ const CustomDataGrid = styled(DataGrid)(({ theme }) => ({
 
 const DataGridComp = ({ columns, rows }) => {
 
-    const [density, setDensity] = useState('comfortable'); // Initial density setting
 
     return (
         <Box className='dataGrid' style={{ width: '100%' }}>
