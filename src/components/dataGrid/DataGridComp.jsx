@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./dataGrid.scss"
 import { Box } from '@mui/material'
 import { styled } from "@mui/material/styles"
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridPagination, GridToolbar } from '@mui/x-data-grid';
 
 
 
@@ -52,6 +52,12 @@ const CustomDataGrid = styled(DataGrid)(({ theme }) => ({
     '& .MuiDataGrid-cell:focus': {
         outline: 'none', // Remove the focus outline
     },
+    '& .MuiDataGrid-toolbarContainer .MuiSvgIcon-root': {
+        color: "#22C55E", // Change this to the desired color
+    },
+    '& .MuiDataGrid-toolbarContainer .MuiButtonBase-root, .MuiDataGrid-toolbarContainer .MuiButtonBase-root svg': {
+        color: "#212B36", // Change this to the desired font color
+    },
 
 
 
@@ -67,26 +73,32 @@ const DataGridComp = ({ columns, rows }) => {
 
     return (
         <Box className='dataGrid' style={{ width: '100%' }}>
+
             <CustomDataGrid
                 rowHeight={75}
-
                 rows={rows}
                 columns={columns}
                 density='comfortable'
-                pageSizeOptions={[5]}
                 checkboxSelection
-                pagination
                 disableRowSelectionOnClick
+                pagination={true}
+                pageSizeOptions={[5, 10, 25, 50, 100]}
                 initialState={{
                     pagination: {
                         paginationModel: {
                             pageSize: 5,
+                            currentPage: 0,
+                            totalRowCount: rows.length
                         },
                     },
                 }}
-                editMode={false}
+                slots={{
+                    toolbar: GridToolbar,
+
+                }}
 
             />
+
         </Box>
     )
 }
